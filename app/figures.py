@@ -6,18 +6,15 @@ from .data import *
 
 #Mapbox
 
-fig1 = go.Figure(px.choropleth(df1_2016,locations="LOCATION", color="Value",
-                                    color_continuous_scale="Jet", range_color=(-15,40),
+fig1 = px.choropleth(df1_emp,locations="LOCATION", color="Value",
+                                    color_continuous_scale="Jet",
+                                    range_color=(0,50),
                                     scope="world",
-                                    labels={"Value":"Pourcentage d'écart de salaire homme-femme"},
-                                    template = "plotly_dark"))
+                                    labels={"LOCATION":"Pays","TIME":"Année","Value":"Pourcentage d'écart de salaire homme-femme"},
+                                    template="plotly_dark",
+                                    animation_frame="TIME",
+                                    title="Carte")
 
-"""
-fig1 = px.scatter_geo(df1, locations="LOCATION", locationmode="ISO-3",
-                     hover_name="LOCATION", size=df1.Value,
-                     animation_frame="TIME",
-                     projection="natural earth")
-"""
 #Histogram
 fig2 = px.histogram(df2, x="total_bill", y="tip", color="sex", labels={'total_bill':'année', 'tip':'salaire moyen'},
                    marginal="box", # or violin, rug

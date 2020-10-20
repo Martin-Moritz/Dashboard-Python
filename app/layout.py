@@ -24,10 +24,9 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
 
     #html.Label(["Mapbox", dcc.Dropdown(id="dropdown1")], style={'color':'white','display': 'inline-block', 'width': '20%', 'position':'absolute','top':'20px'}),
 
-    html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),
-
     dcc.Dropdown(
     id='selection-pays',
+    placeholder='Selectionner un pays',
     options=[
         {'label': 'United-States', 'value': 'USA'},
         {'label': 'France', 'value': 'FRA'},
@@ -39,7 +38,9 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     ],
     multi=True,
     value=["USA","FRA","CAN","KOR"]
-),
+    ),
+
+    html.Div(children=[dcc.Graph(id='mapbox', figure=fig1, style={'width': '100%'})]),
 
     html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
 
