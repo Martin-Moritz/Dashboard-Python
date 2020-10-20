@@ -5,17 +5,24 @@ from datetime import datetime as dt
 from .data import *
 
 #Mapbox
+"""
 from urllib.request import urlopen
 import json
 with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
     counties = json.load(response)
 
-fig1 = go.Figure(go.Choroplethmapbox(geojson=counties, locations=df1.fips, z=df1.unemp,
+fig1 = go.Figure(go.Choroplethmapbox(geojson=counties, locations=df1.LOCATION, z=df1.Value,
                                     colorscale="Viridis", zmin=0, zmax=12,
                                     marker_opacity=0.5, marker_line_width=0))
 fig1.update_layout(mapbox_style="carto-positron",
                   mapbox_zoom=3, mapbox_center = {"lat": 37.0902, "lon": -95.7129})
 fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+"""
+
+fig1 = px.scatter_geo(df1, locations="LOCATION", locationmode="ISO-3",
+                     hover_name="LOCATION", size=df1.Value,
+                     animation_frame="TIME",
+                     projection="natural earth")
 
 #Histogram
 fig2 = px.histogram(df2, x="total_bill", y="tip", color="sex", labels={'total_bill':'année', 'tip':'salaire moyen'},
