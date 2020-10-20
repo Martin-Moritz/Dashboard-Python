@@ -26,6 +26,21 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
 
     html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),
 
+    dcc.Dropdown(
+    id='selection-pays',
+    options=[
+        {'label': 'United-States', 'value': 'USA'},
+        {'label': 'France', 'value': 'FRA'},
+        {'label': 'Canada', 'value': 'CAN'},
+        {'label': 'Belgique', 'value': 'BEL'},
+        {'label': 'Allemagne', 'value': 'DEU'},
+        {'label': 'Japon', 'value': 'JPN'},
+        {'label': 'Corée', 'value': 'KOR'}
+    ],
+    multi=True,
+    value=["USA","FRA","CAN","KOR"]
+),
+
     html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
 
 ])
