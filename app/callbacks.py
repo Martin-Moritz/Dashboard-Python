@@ -9,35 +9,43 @@ def register_callbacks(dashapp):
     @dashapp.callback(
         Output('mapbox', 'figure'),
         [Input('selection-pays', 'value')])
-    def update_figure(selected_country):
+    def update_figure(selected_countries):
 
-        #df1_2016 = df1.loc[(df1["TIME"]==2016) & (df1["SUBJECT"]=="EMPLOYEE")]
-        df1_emp = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
+        focus = 'world'
 
-        frames = []
+        filtered_df = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
 
-        if selected_country==[]:
-            filtered_df = df1_emp
+        if selected_countries==[]:
+            filtered_df = filtered_df.drop(df1[df1.TIME==1996].index)
             fig1 = px.choropleth(filtered_df, locations="LOCATION", color="Value",
                                                 color_continuous_scale="Jet",
                                                 range_color=(0,50),
-                                                scope="world",
-                                                labels={"LOCATION":"Pays","TIME":"Année","Value":"Pourcentage d'écart de salaire homme-femme"},
+                                                scope=focus,
+                                                labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
                                                 template = "plotly_dark",
                                                 animation_frame="TIME",
                                                 title="Carte",
                                                 height= 700)
 
         else:
-            for i in selected_country:
-                frames.append(df1_emp[df1_emp["LOCATION"]==i])
+            frames = []
+            for i in selected_countries:
+                frames.append(filtered_df[filtered_df["LOCATION"]==i])
             filtered_df = pd.concat(frames)
+
+            #AJOUTER UN FOCUS APPROPRIE SELON LES PAYS SELECTIONNES
+            """if len(selected_countries)==1:
+                focus='asia'
+            """
+            for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
+                if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
+                    filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
 
             fig1 = px.choropleth(filtered_df,locations="LOCATION", color="Value",
                                                 color_continuous_scale="Jet",
                                                 range_color=(0,50),
-                                                scope="world",
-                                                labels={"LOCATION":"Pays","TIME":"Année","Value":"Pourcentage d'écart de salaire homme-femme"},
+                                                scope=focus,
+                                                labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
                                                 template = "plotly_dark",
                                                 animation_frame="TIME",
                                                 title="Carte",

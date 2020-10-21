@@ -6,11 +6,11 @@ from .data import *
 
 #Mapbox
 
-fig1 = px.choropleth(df1_emp,locations="LOCATION", color="Value",
+fig1 = px.choropleth(df1,locations="LOCATION", color="Value",
                                     color_continuous_scale="Jet",
                                     range_color=(0,50),
                                     scope="world",
-                                    labels={"LOCATION":"Pays","TIME":"Année","Value":"Pourcentage d'écart de salaire homme-femme"},
+                                    labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
                                     template="plotly_dark",
                                     animation_frame="TIME",
                                     title="Carte",
