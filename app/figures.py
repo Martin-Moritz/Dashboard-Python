@@ -13,9 +13,10 @@ fig1 = px.choropleth(df1_emp,locations="LOCATION", color="Value",
                                     labels={"LOCATION":"Pays","TIME":"Année","Value":"Pourcentage d'écart de salaire homme-femme"},
                                     template="plotly_dark",
                                     animation_frame="TIME",
-                                    title="Carte")
+                                    title="Carte",
+                                    height=700)
 
 #Histogram
-fig2 = px.histogram(df2, x="total_bill", y="tip", color="sex", labels={'total_bill':'année', 'tip':'salaire moyen'},
+fig2 = px.histogram(df1_emp, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Pourcentage d'écart de salaire homme-femme"},
                    marginal="box", # or violin, rug
-                   hover_data=df2.columns)
+                   hover_data=df1_emp.columns)

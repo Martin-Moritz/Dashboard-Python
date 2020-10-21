@@ -25,7 +25,8 @@ def register_callbacks(dashapp):
                                                 labels={"LOCATION":"Pays","TIME":"Année","Value":"Pourcentage d'écart de salaire homme-femme"},
                                                 template = "plotly_dark",
                                                 animation_frame="TIME",
-                                                title="Carte")
+                                                title="Carte",
+                                                height= 700)
 
         else:
             for i in selected_country:
@@ -39,6 +40,7 @@ def register_callbacks(dashapp):
                                                 labels={"LOCATION":"Pays","TIME":"Année","Value":"Pourcentage d'écart de salaire homme-femme"},
                                                 template = "plotly_dark",
                                                 animation_frame="TIME",
-                                                title="Carte")
+                                                title="Carte",
+                                                height=700)
 
         return fig1

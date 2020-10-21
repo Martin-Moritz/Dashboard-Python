@@ -40,7 +40,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     value=["USA","FRA","CAN","KOR"]
     ),
 
-    html.Div(children=[dcc.Graph(id='mapbox', figure=fig1, style={'width': '100%'})]),
+    html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),
 
     html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
 
