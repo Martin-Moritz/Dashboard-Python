@@ -15,7 +15,7 @@ def register_callbacks(dashapp):
 
         filtered_df = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
 
-        #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays possibles)
+        #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
         if selected_countries==[]:
             filtered_df = filtered_df.drop(df1[df1.TIME==1996].index)
             fig1 = px.choropleth(filtered_df, locations="LOCATION", color="Value",
@@ -23,6 +23,7 @@ def register_callbacks(dashapp):
                                                 range_color=(0,50),
                                                 scope=focus,
                                                 labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
+                                                hover_name="PAYS",
                                                 template = "plotly_dark",
                                                 animation_frame="TIME",
                                                 title="Carte",
@@ -58,6 +59,7 @@ def register_callbacks(dashapp):
                                                 range_color=(0,50),
                                                 scope=focus,
                                                 labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
+                                                hover_name="PAYS",
                                                 template = "plotly_dark",
                                                 animation_frame="TIME",
                                                 title="Carte",
