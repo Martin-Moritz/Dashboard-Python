@@ -29,17 +29,9 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     dcc.Dropdown(
     id='selection-pays',
     placeholder='Selectionner un pays',
-    options=[
-        {'label': 'United-States', 'value': 'USA'},
-        {'label': 'France', 'value': 'FRA'},
-        {'label': 'Canada', 'value': 'CAN'},
-        {'label': 'Belgique', 'value': 'BEL'},
-        {'label': 'Allemagne', 'value': 'DEU'},
-        {'label': 'Japon', 'value': 'JPN'},
-        {'label': 'Corée', 'value': 'KOR'}
-    ],
+    options=options_selection_pays,
     multi=True,
-    value=["USA","FRA","CAN","KOR"]
+    value=["USA","FRA","CAN","KOR","JPN","DEU"]
     ),
 
     #Figure Mapbox

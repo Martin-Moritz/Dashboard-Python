@@ -5,9 +5,6 @@ import plotly.express as px
 ##Pourcentage d'écart salarial femmes-hommes
 df1 = pd.read_csv("data/Ecart salarial femmes-hommes.csv")
 
-#nombre total de pays différents dans la dataset
-nb_pays = df1.drop_duplicates(subset=['LOCATION']).shape[0]
-
 ##Data utilisée pour l'ajout des continents et noms de pays correspondants dans la dataset principale
 #liste des continents
 df_continent=pd.read_csv("https://pkgstore.datahub.io/JohnSnowLabs/country-and-continent-codes-list/country-and-continent-codes-list-csv_csv/data/b7876b7f496677669644f3d1069d3121/country-and-continent-codes-list-csv_csv.csv",sep=",")
@@ -43,7 +40,7 @@ for i in range(len(continents)):
     if continents[i]=="Asia":
         continents[i]="Asie"
     elif continents[i]=="Oceania":
-        continents[i]="Asie"
+        continents[i]="Océanie"
     elif continents[i]=="North America":
         continents[i]="Amérique du Nord"
     elif continents[i]=="South America":
@@ -68,7 +65,20 @@ for i in range(df1.LOCATION.size):
 
 df1['PAYS']=pays
 
+#nombre total de pays différents dans la dataset
+nb_pays = df1.drop_duplicates(subset=['LOCATION']).shape[0]
+#liste des codes à trois lettres des différents pays de la dataset
+liste_code_pays = df1.drop_duplicates(subset=['LOCATION']).LOCATION
+#liste des noms en français des différents pays
+liste_noms_pays = df1.drop_duplicates(subset=['LOCATION']).PAYS
 
+##Liste des pays à sélectionner dans le menu déroulant
+options_selection_pays = []
+for i in range(liste_code_pays.size):
+    option = {}
+    option['label']=liste_noms_pays.iloc[i]
+    option['value']=liste_code_pays.iloc[i]
+    options_selection_pays.append(option)
 
 #Data Histogram
 df2 = px.data.tips()
