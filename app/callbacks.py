@@ -33,10 +33,20 @@ def register_callbacks(dashapp):
                 frames.append(filtered_df[filtered_df["LOCATION"]==i])
             filtered_df = pd.concat(frames)
 
-            #AJOUTER UN FOCUS APPROPRIE SELON LES PAYS SELECTIONNES
-            """if len(selected_countries)==1:
-                focus='asia'
-            """
+            #Ajuste le focus de la carte si un seul pays est sélectionné
+            if len(selected_countries)==1:
+                if filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Asie":
+                    focus='asia'
+                elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Europe":
+                    focus='europe'
+                elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Amérique du Nord":
+                    focus='north america'
+                elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Amérique du Sud":
+                    focus='south america'
+                elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Afrique":
+                    focus='africa'
+
+            #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée pour l'année 1975)
             for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
                 if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                     filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
