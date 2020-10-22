@@ -4,7 +4,7 @@ from dash.dependencies import *
 from .data import *
 from .figures import *
 
-
+#Callbacks pour rafraichir et mettre à jour les différentes figures
 def register_callbacks(dashapp):
     @dashapp.callback(
         Output('mapbox', 'figure'),
@@ -15,6 +15,7 @@ def register_callbacks(dashapp):
 
         filtered_df = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
 
+        #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays possibles)
         if selected_countries==[]:
             filtered_df = filtered_df.drop(df1[df1.TIME==1996].index)
             fig1 = px.choropleth(filtered_df, locations="LOCATION", color="Value",
@@ -27,6 +28,7 @@ def register_callbacks(dashapp):
                                                 title="Carte",
                                                 height= 700)
 
+        #Mise à jour de la carte en fonction des pays sélectionnés
         else:
             frames = []
             for i in selected_countries:
@@ -46,7 +48,7 @@ def register_callbacks(dashapp):
                 elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Afrique":
                     focus='africa'
 
-            #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée pour l'année 1975)
+            #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1975)
             for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
                 if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                     filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)

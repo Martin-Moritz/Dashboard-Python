@@ -4,8 +4,7 @@ from datetime import datetime as dt
 
 from .data import *
 
-#Mapbox
-
+#Figure Mapbox
 fig1 = px.choropleth(df1,locations="LOCATION", color="Value",
                                     color_continuous_scale="Jet",
                                     range_color=(0,50),
@@ -16,7 +15,7 @@ fig1 = px.choropleth(df1,locations="LOCATION", color="Value",
                                     title="Carte",
                                     height=700)
 
-#Histogram
+#Figure Histogram
 fig2 = px.histogram(df1, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Pourcentage d'écart de salaire homme-femme"},
                    marginal="box", # or violin, rug
                    hover_data=df1.columns)
