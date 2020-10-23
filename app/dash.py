@@ -1,5 +1,6 @@
 import flask
 import dash
+import dash_bootstrap_components as dbc
 
 from . import app
 
@@ -7,7 +8,7 @@ from .callbacks import register_callbacks
 from .layout import layout
 
 #style de page utilisé pour le dashboard
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+external_stylesheets = [dbc.themes.BOOTSTRAP]
 
 #Création de l'application Dash
 dashapp = dash.Dash(__name__, external_stylesheets=external_stylesheets, server=app,

@@ -23,35 +23,40 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
             'color': colors['text'],
             'fontWeight': 'bold'
         }
-    )]),
+    )], justify='center'),
 
     #html.Label(["Mapbox", dcc.Dropdown(id="dropdown1")], style={'color':'white','display': 'inline-block', 'width': '20%', 'position':'absolute','top':'20px'}),
 
-    html.Div(children=[
-        #Menu déroulant pour le choix des pays
-        dcc.Dropdown(
-        id='selection-pays',
-        placeholder='Selectionner un pays',
-        options=options_selection_pays,
-        multi=True,
-        value=["USA","FRA","CAN","KOR","JPN","DEU"],
-        style={'display': 'inline-block', 'width': '100%'}
-        ),
-    ], style={'display':'inline-block','width':'80%'}),
+    dbc.Row([
+        dbc.Col([
+            html.Div(children=[
+                #Menu déroulant pour le choix des pays
+                dcc.Dropdown(
+                id='selection-pays',
+                placeholder='Selectionner un pays',
+                options=options_selection_pays,
+                multi=True,
+                value=["USA","FRA","CAN","KOR","JPN","DEU"],
+                style={'display': 'inline-block', 'width':'100%'}
+                ),
+            ]),
+        ], width=8),
 
-    html.Div(children=[
-        #Choix entre salariés et non salariés
-        dcc.RadioItems(
-        id='selection-salarial',
-        options=[
-            {'label': 'Salariés', 'value': 'SAL'},
-            {'label': 'Non-salariés', 'value': 'NSAL'}
-        ],
-        value='SAL',
-        labelStyle={'backgroundColor':'white','width':'30%'}
-        ),
-    ], style={'display':'inline-block','width':'30%','position':'absolute','top':'70px','left':'1550px'}),
-
+        dbc.Col([
+            html.Div(children=[
+                #Choix entre salariés et non salariés
+                dcc.RadioItems(
+                id='selection-salarial',
+                options=[
+                    {'label': 'Salariés', 'value': 'SAL'},
+                    {'label': 'Non-salariés', 'value': 'NSAL'}
+                ],
+                value='SAL',
+                labelStyle={'backgroundColor':'white','width':'20%'}
+                ),
+            ]),
+        ], width=4),
+    ], justify='center'),
 
     #Figure Mapbox
     html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),

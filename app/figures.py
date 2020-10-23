@@ -17,6 +17,7 @@ fig1 = px.choropleth(df1,locations="LOCATION", color="Value",
                                     height=700)
 
 #Figure Histogram
-fig2 = px.histogram(df1, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Pourcentage d'écart de salaire homme-femme"},
+fig2 = px.histogram(df1, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"},
+                   hover_name="PAYS",
                    marginal="box", # or violin, rug
                    hover_data=df1.columns)

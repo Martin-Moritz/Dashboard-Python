@@ -90,3 +90,46 @@ def register_callbacks(dashapp):
             disabled=True
 
         return fig1, disabled
+
+
+    @dashapp.callback(
+        Output('histogram', 'figure'),
+        [Input('selection-pays', 'value'), Input('selection-salarial','value')])
+    def update_figure(selected_countries, selected_salarial):
+
+        #Filtrage des données en fonction du choix salariés ou non-salariés
+        if selected_salarial == "SAL":
+            filtered_df = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
+        else:
+            filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
+
+        if selected_salarial != "SAL":
+            #filtered_df = filtered_df.drop(filtered_df[filtered_df.LOCATION=="NZL"].index)
+            fig2 = px.histogram(filtered_df, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"},
+                               hover_name="PAYS",
+                               hover_data=filtered_df.columns)
+        else:
+            #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
+            if selected_countries==[]:
+                #filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==1996].index)
+                fig2 = px.histogram(filtered_df, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"},
+                                   hover_name="PAYS",
+                                   hover_data=filtered_df.columns)
+
+            #Mise à jour de la carte en fonction des pays sélectionnés
+            else:
+                frames = []
+                for i in selected_countries:
+                    frames.append(filtered_df[filtered_df["LOCATION"]==i])
+                filtered_df = pd.concat(frames)
+
+                #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1975)
+                for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
+                    if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
+                        filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
+
+                fig2 = px.histogram(filtered_df, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"},
+                                   hover_name="PAYS",
+                                   hover_data=df1.columns)
+
+        return fig2
