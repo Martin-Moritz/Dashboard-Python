@@ -19,7 +19,7 @@ fig1 = px.choropleth(df1,locations="LOCATION", color="Value",
 fig1.update_layout(paper_bgcolor='#DCE8FD')
 
 #Figure Histogram
-fig2 = px.histogram(df1, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"},
-                   hover_name="PAYS",
-                   marginal="box", # or violin, rug
-                   hover_data=df1.columns)
+fig2 = px.histogram(df1, x="TIME", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, histfunc='avg', barmode='overlay', opacity=0.5, nbins=26)
+
+#Figure Diagramme en barres
+fig3 = px.histogram(df1, x="PAYS", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"})

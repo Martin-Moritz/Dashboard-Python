@@ -12,7 +12,6 @@ colors = {
     'text': '#49BBEE'
 }
 
-#'background': '#464A4D'
 
 #Disposition des figures et autres composants
 layout = html.Div(style={'backgroundColor': colors['background']}, children=[
@@ -63,5 +62,20 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
 
     #Figure Histogram
     html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
+
+    #Figure Diagramme en barres
+    html.Div(children=[dcc.Graph(id='bar-diagram', figure=fig3)]),
+
+    html.Div(children=[
+        #Choix de l'année pour le diagramme en barres
+        dcc.Slider(
+        id='year-slider',
+        min= 1992,
+        max= 2018,
+        value= 1992,
+        marks={str(i): str(i) for i in range (1990,2020,1)},
+        step = 1
+    )
+    ],style={'backgroundColor':'#DCE8FD'}),
 
 ])
