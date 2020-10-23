@@ -110,7 +110,7 @@ def register_callbacks(dashapp):
 
             bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
-            fig2 = px.histogram(filtered_df, x="TIME", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, histfunc='avg', barmode='overlay', opacity=0.5, nbins=bins)
+            fig2 = px.histogram(filtered_df, title='Histogramme', x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins)
         else:
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
             if selected_countries==[]:
@@ -118,7 +118,7 @@ def register_callbacks(dashapp):
 
                 bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
-                fig2 = px.histogram(filtered_df, x="TIME", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, histfunc='avg', barmode='overlay', opacity=0.5, nbins=bins)
+                fig2 = px.histogram(filtered_df, title='Histogramme',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins)
 
             #Mise à jour de la carte en fonction des pays sélectionnés
             else:
@@ -134,7 +134,9 @@ def register_callbacks(dashapp):
 
                 bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
-                fig2 = px.histogram(filtered_df, x="TIME", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, histfunc='avg', barmode='overlay', opacity=0.5, nbins=bins)
+                fig2 = px.histogram(filtered_df, title='Histogramme',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins)
+
+        fig2.update_layout(yaxis={'title':{'text':'Ecart salarial femmes-hommes (%)'}}, paper_bgcolor='#DCE8FD')
 
         return fig2
 
@@ -152,12 +154,12 @@ def register_callbacks(dashapp):
 
         if selected_salarial != "SAL":
             #filtered_df = filtered_df.drop(filtered_df[filtered_df.LOCATION=="NZL"].index)
-            fig3 = px.histogram(filtered_df, x="PAYS", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"})
+            fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white')
         else:
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
             if selected_countries==[]:
                 #filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==1996].index)
-                fig3 = px.histogram(filtered_df, x="PAYS", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"})
+                fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white')
 
             #Mise à jour de la carte en fonction des pays sélectionnés
             else:
@@ -171,11 +173,13 @@ def register_callbacks(dashapp):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
 
-                fig3 = px.histogram(filtered_df, x="PAYS", y="Value", color="PAYS", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"})
+                fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white')
 
         #Valeurs du slider mises à jour
         min = filtered_df["TIME"].min()
         max = filtered_df["TIME"].max()
         #marks = dict(filtered_df["TIME"])
+
+        fig3.update_layout(yaxis={'title':{'text':'Ecart salarial femmes-hommes (%)'}}, paper_bgcolor='#DCE8FD')
 
         return fig3, min, max
