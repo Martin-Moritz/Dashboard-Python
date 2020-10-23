@@ -28,7 +28,7 @@ def register_callbacks(dashapp):
                                                 scope=focus,
                                                 labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
                                                 hover_name="PAYS",
-                                                template = "plotly_dark",
+                                                template = "ggplot2",
                                                 animation_frame="TIME",
                                                 title="Carte",
                                                 height= 700)
@@ -42,7 +42,7 @@ def register_callbacks(dashapp):
                                                     scope=focus,
                                                     labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
                                                     hover_name="PAYS",
-                                                    template = "plotly_dark",
+                                                    template = "ggplot2",
                                                     animation_frame="TIME",
                                                     title="Carte",
                                                     height= 700)
@@ -78,7 +78,7 @@ def register_callbacks(dashapp):
                                                     scope=focus,
                                                     labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
                                                     hover_name="PAYS",
-                                                    template = "plotly_dark",
+                                                    template = "ggplot2",
                                                     animation_frame="TIME",
                                                     title="Carte",
                                                     height=700)
@@ -88,6 +88,8 @@ def register_callbacks(dashapp):
             disabled=False
         else:
             disabled=True
+
+        fig1.update_layout(paper_bgcolor='#DCE8FD')
 
         return fig1, disabled
 

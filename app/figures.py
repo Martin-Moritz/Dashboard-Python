@@ -11,10 +11,12 @@ fig1 = px.choropleth(df1,locations="LOCATION", color="Value",
                                     scope="world",
                                     labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
                                     hover_name="PAYS",
-                                    template="plotly_dark",
+                                    template="ggplot2",
                                     animation_frame="TIME",
                                     title="Carte",
                                     height=700)
+
+fig1.update_layout(paper_bgcolor='#DCE8FD')
 
 #Figure Histogram
 fig2 = px.histogram(df1, x="TIME", y="Value", color="LOCATION", labels={'TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"},

@@ -8,7 +8,7 @@ from .figures import *
 
 #Couleurs utilisées dans le Dashboard
 colors = {
-    'background': 'white',
+    'background': '#1F618D',
     'text': '#49BBEE'
 }
 
@@ -23,7 +23,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
             'color': colors['text'],
             'fontWeight': 'bold'
         }
-    )], justify='center'),
+    )], justify='center', style={'height':'60px'}),
 
     #html.Label(["Mapbox", dcc.Dropdown(id="dropdown1")], style={'color':'white','display': 'inline-block', 'width': '20%', 'position':'absolute','top':'20px'}),
 
@@ -40,23 +40,23 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
                 style={'display': 'inline-block', 'width':'100%'}
                 ),
             ]),
-        ], width=8),
+        ], width=7),
 
         dbc.Col([
             html.Div(children=[
                 #Choix entre salariés et non salariés
-                dcc.RadioItems(
+                dbc.RadioItems(
                 id='selection-salarial',
                 options=[
                     {'label': 'Salariés', 'value': 'SAL'},
                     {'label': 'Non-salariés', 'value': 'NSAL'}
                 ],
                 value='SAL',
-                labelStyle={'backgroundColor':'white','width':'20%'}
+                labelStyle={'backgroundColor':'white','width':'20%','backgroundColor':colors['background']}
                 ),
             ]),
         ], width=4),
-    ], justify='center'),
+    ], justify='center', align = 'center', style={'height':'70px'}),
 
     #Figure Mapbox
     html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),
