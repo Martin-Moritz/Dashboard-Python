@@ -72,6 +72,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
         id='year-slider',
         min= 1992,
         max= 2018,
+        value= 1992,
         marks={str(i): str(i) for i in range (1990,2020,1)},
     )
     ],style={'backgroundColor':'#DCE8FD'}),

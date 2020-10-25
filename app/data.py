@@ -79,6 +79,3 @@ for i in range(liste_code_pays.size):
     option['label']=liste_noms_pays.iloc[i]
     option['value']=liste_code_pays.iloc[i]
     options_selection_pays.append(option)
-
-#Data Histogram
-df2 = px.data.tips()

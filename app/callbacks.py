@@ -145,6 +145,9 @@ def register_callbacks(dashapp):
         else:
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
 
+        #Filtrage des données correspondantes à l'année selectionnée sur le slider
+        filtered_df = filtered_df.loc[filtered_df["TIME"]==selected_year]
+
         if selected_salarial != "SAL":
             #filtered_df = filtered_df.drop(filtered_df[filtered_df.LOCATION=="NZL"].index)
             fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white')
@@ -161,11 +164,6 @@ def register_callbacks(dashapp):
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
 
-                #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1975)
-                for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
-                    if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
-                        filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
-
                 fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes (%)"}, template='simple_white')
 
 
@@ -175,7 +173,7 @@ def register_callbacks(dashapp):
 
 
     @dashapp.callback(
-        [Output('year-slider', 'min'), Output('year-slider', 'max'), Output('year-slider', 'marks')],
+        [Output('year-slider', 'min'), Output('year-slider', 'max'), Output('year-slider', 'marks'), Output('year-slider', 'value')],
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
     def update_slider(selected_countries, selected_salarial):
 
@@ -205,4 +203,7 @@ def register_callbacks(dashapp):
         a = [i for i in filtered_df["TIME"]]
         marks = {str(i): str(i) for i in a}
 
-        return min, max, marks
+        #Mise à jour de l'année sélectionnée sur le Slider
+        value = filtered_df["TIME"].min()
+
+        return min, max, marks, value
