@@ -175,7 +175,7 @@ def register_callbacks(dashapp):
 
 
     @dashapp.callback(
-        [Output('year-slider', 'min'), Output('year-slider', 'max')],
+        [Output('year-slider', 'min'), Output('year-slider', 'max'), Output('year-slider', 'marks')],
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
     def update_slider(selected_countries, selected_salarial):
 
@@ -197,8 +197,12 @@ def register_callbacks(dashapp):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
 
-        #Valeurs du slider mises à jour
+        #Valeurs min et max du slider mises à jour
         min = filtered_df["TIME"].min()
         max = filtered_df["TIME"].max()
 
-        return min, max
+        #Valeurs intermédiaires du slider mises à jour
+        a = [i for i in filtered_df["TIME"]]
+        marks = {str(i): str(i) for i in a}
+
+        return min, max, marks
