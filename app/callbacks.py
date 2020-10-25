@@ -106,7 +106,6 @@ def register_callbacks(dashapp):
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
 
         if selected_salarial != "SAL":
-            #filtered_df = filtered_df.drop(filtered_df[filtered_df.LOCATION=="NZL"].index)
 
             bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
@@ -114,7 +113,6 @@ def register_callbacks(dashapp):
         else:
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
             if selected_countries==[]:
-                #filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==1996].index)
 
                 bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
@@ -126,11 +124,6 @@ def register_callbacks(dashapp):
                 for i in selected_countries:
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
-
-                #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1975)
-                for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
-                    if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
-                        filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
 
                 bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
