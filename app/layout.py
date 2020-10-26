@@ -74,6 +74,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
         max= 2018,
         value= 1992,
         marks={str(i): str(i) for i in range (1990,2020,1)},
+        updatemode='drag'
     )
     ],style={'backgroundColor':'#DCE8FD'}),
 
