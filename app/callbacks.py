@@ -165,6 +165,7 @@ def register_callbacks(dashapp):
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
 
         if selected_salarial == "SAL":
+            #Filtrage des données en fonction des pays sélectionnés
             if selected_countries!=[]:
                 frames = []
                 for i in selected_countries:
@@ -211,3 +212,42 @@ def register_callbacks(dashapp):
             disabled = True
 
         return disabled
+
+    @dashapp.callback(
+        Output('graph', 'figure'),
+        [Input('selection-pays', 'value'), Input('selection-salarial','value')])
+    def update_graphe(selected_countries, selected_salarial):
+        """
+        Retourne un graphique.
+
+        Parameters:
+            selected_countries : list of str
+            selected_salarial : str
+
+        Returns:
+            Return type : plotly.graph_objects.Figure
+        """
+
+        #Filtrage des données en fonction du choix salariés ou non-salariés
+        if selected_salarial == "SAL":
+            filtered_df = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
+        else:
+            filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
+
+        if selected_salarial == "SAL":
+            #Filtrage des données en fonction des pays sélectionnés
+            if selected_countries!=[]:
+                frames = []
+                for i in selected_countries:
+                    frames.append(filtered_df[filtered_df["LOCATION"]==i])
+                filtered_df = pd.concat(frames)
+
+                #Enlève les données qui ne peuvent pas être comparées (par ex. qu'une seule donnée/pays pour l'année 1996)
+                for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
+                    if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
+                        filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
+
+        #Création de la figure
+        graphe = create_graphe(filtered_df)
+
+        return graphe
