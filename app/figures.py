@@ -33,7 +33,8 @@ carte = create_carte(df1)
 
 #structure générale de l'histogramme
 def histogramme_template(df):
-    histogramme = px.histogram(df, title="Histogramme - Écart de revenus liés entre les hommes et les femmes", x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=26, range_y=(0,60))
+    nbins = int(df["TIME"].max() - df["TIME"].min())+1
+    histogramme = px.histogram(df, title="Histogramme - Écart de revenus liés entre les hommes et les femmes", x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=nbins, range_y=(0,60))
     return histogramme
 
 #fonction pour créer l'histogramme

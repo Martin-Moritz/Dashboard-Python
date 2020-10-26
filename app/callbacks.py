@@ -9,7 +9,7 @@ def register_callbacks(dashapp):
     @dashapp.callback(
         [Output('mapbox', 'figure'), Output('selection-pays', 'disabled')],
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
-    def update_figure(selected_countries, selected_salarial):
+    def update_carte(selected_countries, selected_salarial):
 
         #focus de la carte
         focus = 'world'
@@ -60,7 +60,7 @@ def register_callbacks(dashapp):
     @dashapp.callback(
         Output('histogram', 'figure'),
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
-    def update_figure2(selected_countries, selected_salarial):
+    def update_histogramme(selected_countries, selected_salarial):
 
         #Filtrage des données en fonction du choix salariés ou non-salariés
         if selected_salarial == "SAL":
@@ -68,33 +68,17 @@ def register_callbacks(dashapp):
         else:
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
 
-        if selected_salarial != "SAL":
-
-            bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
-
-            fig2 = px.histogram(filtered_df, title='Histogramme - Ecart de revenus liés entre les hommes et les femmes', x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
-        else:
+        if selected_salarial == "SAL":
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
-            if selected_countries==[]:
-
-                bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
-
-                fig2 = px.histogram(filtered_df, title='Histogramme - Ecart de revenus liés entre les hommes et les femmes',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
-
-            #Mise à jour de la carte en fonction des pays sélectionnés
-            else:
+            if selected_countries!=[]:
                 frames = []
                 for i in selected_countries:
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
 
-                bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
+        histogramme = create_histogramme(filtered_df)
 
-                fig2 = px.histogram(filtered_df, title='Histogramme - Ecart de revenus liés entre les hommes et les femmes',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
-
-        fig2.update_layout(yaxis={'title':{'text':'Ecart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
-
-        return fig2
+        return histogramme
 
 
     @dashapp.callback(
