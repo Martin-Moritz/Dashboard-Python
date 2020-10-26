@@ -49,14 +49,14 @@ histogramme = create_histogramme(df1)
 ##Figure Diagramme en barres
 
 #structure générale du diagramme en barres
-def diagramme_template(df):
-    diagramme = px.histogram(df, title="Diagramme - Écart de revenus liés entre les hommes et les femmes", x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
+def diagramme_template(df,year):
+    diagramme = px.histogram(df, title="Diagramme - Écart de revenus liés entre les hommes et les femmes - " + year, x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
     return diagramme
 
 #fonction pour créer le diagramme
-def create_diagramme(df):
-    diagramme = diagramme_template(df)
-    diagramme.update_layout(yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
+def create_diagramme(df,year):
+    diagramme = diagramme_template(df,year)
+    diagramme.update_layout(title={'font':{'size':15}}, xaxis={'title':{'text':''}}, yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
     return diagramme
 
-diagramme = create_diagramme(df1)
+diagramme = create_diagramme(df1,"Année")

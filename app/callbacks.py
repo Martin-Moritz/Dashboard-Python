@@ -103,7 +103,7 @@ def register_callbacks(dashapp):
                 filtered_df = pd.concat(frames)
 
         #Création de la figure
-        diagramme = create_diagramme(filtered_df)
+        diagramme = create_diagramme(filtered_df,str(selected_year))
 
         return diagramme
 
