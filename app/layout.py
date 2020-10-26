@@ -5,6 +5,7 @@ import dash_bootstrap_components as dbc
 
 from .data import *
 from .figures import *
+from .navbar import *
 
 #Couleurs utilisées dans le Dashboard
 colors = {
@@ -16,14 +17,8 @@ colors = {
 
 #Disposition des figures et autres composants
 layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
-    dbc.Row([html.H1(
-        children='Dashboard Python',
-        style={
-            'textAlign': 'center',
-            'color': colors['text'],
-            'fontWeight': 'bold'
-        }
-    )], justify='center', style={'height':'60px','backgroundColor':colors['background1']}),
+
+    html.Div([navbar]),
 
     dbc.Row([
         dbc.Col([
