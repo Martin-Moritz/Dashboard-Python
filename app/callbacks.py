@@ -17,34 +17,15 @@ def register_callbacks(dashapp):
         #Filtrage des données en fonction du choix salariés ou non-salariés
         if selected_salarial == "SAL":
             filtered_df = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
+            disabled=False
         else:
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
+            disabled=True
 
-        if selected_salarial != "SAL":
-            fig1 = px.choropleth(filtered_df, locations="LOCATION", color="Value",
-                                                color_continuous_scale="Jet",
-                                                range_color=(0,50),
-                                                scope=focus,
-                                                labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
-                                                hover_name="PAYS",
-                                                template = "ggplot2",
-                                                animation_frame="TIME",
-                                                title="Carte - Ecart de revenus liés entre les hommes et les femmes",
-                                                height= 700)
-        else:
+        if selected_salarial == "SAL":
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
             if selected_countries==[]:
                 filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==1996].index)
-                fig1 = px.choropleth(filtered_df, locations="LOCATION", color="Value",
-                                                    color_continuous_scale="Jet",
-                                                    range_color=(0,50),
-                                                    scope=focus,
-                                                    labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes (%)"},
-                                                    hover_name="PAYS",
-                                                    template = "ggplot2",
-                                                    animation_frame="TIME",
-                                                    title="Carte - Ecart de revenus liés entre les hommes et les femmes",
-                                                    height= 700)
 
             #Mise à jour de la carte en fonction des pays sélectionnés
             else:
@@ -71,26 +52,9 @@ def register_callbacks(dashapp):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
 
-                fig1 = px.choropleth(filtered_df,locations="LOCATION", color="Value",
-                                                    color_continuous_scale="Jet",
-                                                    range_color=(0,50),
-                                                    scope=focus,
-                                                    labels={"LOCATION":"Pays","TIME":"Année","Value":"Ecart salarial femmes-hommes"},
-                                                    hover_name="PAYS",
-                                                    template = "ggplot2",
-                                                    animation_frame="TIME",
-                                                    title="Carte - Ecart de revenus liés entre les hommes et les femmes",
-                                                    height=700)
+        carte = create_carte(filtered_df,focus)
 
-        #Activation du menu déroulant
-        if selected_salarial=="SAL":
-            disabled=False
-        else:
-            disabled=True
-
-        fig1.update_layout(paper_bgcolor='#DCE8FD', coloraxis={"colorbar":{"ticksuffix":"%"}})
-
-        return fig1, disabled
+        return carte, disabled
 
 
     @dashapp.callback(
