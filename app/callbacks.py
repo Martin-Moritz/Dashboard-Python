@@ -4,12 +4,22 @@ from dash.dependencies import *
 from .data import *
 from .figures import *
 
-#Callbacks pour rafraichir et mettre à jour les différentes figures
+#Callbacks pour rafraichir et mettre à jour les différentes figures et composants
 def register_callbacks(dashapp):
     @dashapp.callback(
         Output('mapbox', 'figure'),
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
     def update_carte(selected_countries, selected_salarial):
+        """
+        Retourne une carte choroplèthe.
+
+        Parameters:
+            selected_countries : list of str
+            selected_salarial : str
+
+        Returns:
+            Return type : plotly.graph_objects.Figure
+        """
 
         #focus de la carte
         focus = 'world'
@@ -44,7 +54,7 @@ def register_callbacks(dashapp):
                     elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Afrique":
                         focus='africa'
 
-                #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1996)
+                #Enlève les données qui ne peuvent pas être comparées (par ex. qu'une seule donnée/pays pour l'année 1996)
                 for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
@@ -59,6 +69,16 @@ def register_callbacks(dashapp):
         Output('histogram', 'figure'),
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
     def update_histogramme(selected_countries, selected_salarial):
+        """
+        Retourne un histogramme.
+
+        Parameters:
+            selected_countries : list of str
+            selected_salarial : str
+
+        Returns:
+            Return type : plotly.graph_objects.Figure
+        """
 
         #Filtrage des données en fonction du choix salariés ou non-salariés
         if selected_salarial == "SAL":
@@ -84,6 +104,17 @@ def register_callbacks(dashapp):
         Output('bar-diagram', 'figure'),
         [Input('selection-pays', 'value'), Input('selection-salarial','value'), Input('year-slider','value')])
     def update_diagramme(selected_countries, selected_salarial, selected_year):
+        """
+        Retourne un diagramme.
+
+        Parameters:
+            selected_countries : list of str
+            selected_salarial : str
+            selected_year : int
+
+        Returns:
+            Return type : plotly.graph_objects.Figure
+        """
 
         #Filtrage des données en fonction du choix salariés ou non-salariés
         if selected_salarial == "SAL":
@@ -112,6 +143,16 @@ def register_callbacks(dashapp):
         [Output('year-slider', 'min'), Output('year-slider', 'max'), Output('year-slider', 'marks'), Output('year-slider', 'value')],
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
     def update_slider(selected_countries, selected_salarial):
+        """
+        Retourne 4 paramètres d'un dcc.Slider
+
+        Parameters:
+            selected_countries : list of str
+            selected_salarial : str
+
+        Returns:
+            Return type : int, int, dict, int
+        """
 
         #Filtrage des données en fonction du choix salariés ou non-salariés
         if selected_salarial == "SAL":
@@ -126,7 +167,7 @@ def register_callbacks(dashapp):
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
 
-                #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1975)
+                #Enlève les données qui ne peuvent pas être comparées (par ex. qu'une seule donnée/pays pour l'année 1996)
                 for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
@@ -149,6 +190,15 @@ def register_callbacks(dashapp):
         Output('selection-pays', 'disabled'),
         [Input('selection-salarial','value')])
     def update_dropdown(selected_salarial):
+        """
+        Retourne un paramètre d'un dcc.Dropdown
+
+        Parameters:
+            selected_salarial : str
+
+        Returns:
+            Return type : bool
+        """
 
         #Activation du menu déroulant selon le choix salariés/non-salariés
         if selected_salarial == "SAL":
