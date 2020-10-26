@@ -14,7 +14,7 @@ colors = {
 
 
 #Disposition des figures et autres composants
-layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+layout = html.Div(style={'backgroundColor': '#DCE8FD'}, children=[
     dbc.Row([html.H1(
         children='Dashboard Python',
         style={
@@ -22,9 +22,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
             'color': colors['text'],
             'fontWeight': 'bold'
         }
-    )], justify='center', style={'height':'60px'}),
-
-    #html.Label(["Mapbox", dcc.Dropdown(id="dropdown1")], style={'color':'white','display': 'inline-block', 'width': '20%', 'position':'absolute','top':'20px'}),
+    )], justify='center', style={'height':'60px','backgroundColor':colors['background']}),
 
     dbc.Row([
         dbc.Col([
@@ -51,31 +49,38 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
                     {'label': 'Non-salariés', 'value': 'NSAL'}
                 ],
                 value='SAL',
-                labelStyle={'backgroundColor':'white','width':'20%','backgroundColor':colors['background']}
+                labelStyle={'width':'20%','backgroundColor':colors['background']}
                 ),
             ]),
         ], width=4),
-    ], justify='center', align = 'center', style={'height':'70px'}),
+    ], justify='center', align = 'center', style={'height':'70px', 'backgroundColor':colors['background']}),
 
     #Figure Mapbox
     html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),
 
-    #Figure Histogram
-    html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
 
-    #Figure Diagramme en barres
-    html.Div(children=[dcc.Graph(id='bar-diagram', figure=fig3)]),
+    dbc.Row([
+        dbc.Col([
+            #Figure Histogram
+            html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
+        ], width=7),
 
-    html.Div(children=[
-        #Choix de l'année pour le diagramme en barres
-        dcc.Slider(
-        id='year-slider',
-        min= 1992,
-        max= 2018,
-        value= 1992,
-        marks={str(i): str(i) for i in range (1990,2020,1)},
-        updatemode='drag'
-    )
-    ],style={'backgroundColor':'#DCE8FD'}),
+        dbc.Col([
+            #Figure Diagramme en barres
+            html.Div(children=[dcc.Graph(id='bar-diagram', figure=fig3)]),
+
+            html.Div(children=[
+                #Choix de l'année pour le diagramme en barres
+                dcc.Slider(
+                id='year-slider',
+                min= 1992,
+                max= 2018,
+                value= 1992,
+                marks={str(i): str(i) for i in range (1990,2020,1)},
+                updatemode='drag'
+            )
+            ],style={'backgroundColor':'#DCE8FD'}),
+        ], width=5),
+    ], justify='center', align = 'center'),
 
 ])
