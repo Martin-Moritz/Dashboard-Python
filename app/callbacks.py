@@ -29,7 +29,7 @@ def register_callbacks(dashapp):
                                                 hover_name="PAYS",
                                                 template = "ggplot2",
                                                 animation_frame="TIME",
-                                                title="Carte",
+                                                title="Carte - Ecart de revenus liés entre les hommes et les femmes",
                                                 height= 700)
         else:
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
@@ -43,7 +43,7 @@ def register_callbacks(dashapp):
                                                     hover_name="PAYS",
                                                     template = "ggplot2",
                                                     animation_frame="TIME",
-                                                    title="Carte",
+                                                    title="Carte - Ecart de revenus liés entre les hommes et les femmes",
                                                     height= 700)
 
             #Mise à jour de la carte en fonction des pays sélectionnés
@@ -79,7 +79,7 @@ def register_callbacks(dashapp):
                                                     hover_name="PAYS",
                                                     template = "ggplot2",
                                                     animation_frame="TIME",
-                                                    title="Carte",
+                                                    title="Carte - Ecart de revenus liés entre les hommes et les femmes",
                                                     height=700)
 
         #Activation du menu déroulant
@@ -108,14 +108,14 @@ def register_callbacks(dashapp):
 
             bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
-            fig2 = px.histogram(filtered_df, title='Histogramme', x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
+            fig2 = px.histogram(filtered_df, title='Histogramme - Ecart de revenus liés entre les hommes et les femmes', x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
         else:
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
             if selected_countries==[]:
 
                 bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
-                fig2 = px.histogram(filtered_df, title='Histogramme',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
+                fig2 = px.histogram(filtered_df, title='Histogramme - Ecart de revenus liés entre les hommes et les femmes',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
 
             #Mise à jour de la carte en fonction des pays sélectionnés
             else:
@@ -126,7 +126,7 @@ def register_callbacks(dashapp):
 
                 bins = int(filtered_df["TIME"].max() - filtered_df["TIME"].min())+1
 
-                fig2 = px.histogram(filtered_df, title='Histogramme',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
+                fig2 = px.histogram(filtered_df, title='Histogramme - Ecart de revenus liés entre les hommes et les femmes',  x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=bins, range_y=(0,60))
 
         fig2.update_layout(yaxis={'title':{'text':'Ecart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
 
@@ -148,11 +148,11 @@ def register_callbacks(dashapp):
         filtered_df = filtered_df.loc[filtered_df["TIME"]==selected_year]
 
         if selected_salarial != "SAL":
-            fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
+            fig3 = px.histogram(filtered_df, title='Diagramme - Ecart de revenus liés entre les hommes et les femmes', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
         else:
             #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
             if selected_countries==[]:
-                fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
+                fig3 = px.histogram(filtered_df, title='Diagramme - Ecart de revenus liés entre les hommes et les femmes', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
 
             #Mise à jour de la carte en fonction des pays sélectionnés
             else:
@@ -161,7 +161,7 @@ def register_callbacks(dashapp):
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
 
-                fig3 = px.histogram(filtered_df, title='Diagramme en barres', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
+                fig3 = px.histogram(filtered_df, title='Diagramme - Ecart de revenus liés entre les hommes et les femmes', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
 
 
         fig3.update_layout(yaxis={'title':{'text':'Ecart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
