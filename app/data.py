@@ -18,7 +18,7 @@ deleted_years.append(2019)
 for i in deleted_years:
     df1 = df1.drop(df1[df1.TIME==i].index)
 #Suppression des pays avec peu de données
-deleted_countries=["OECD","HRV","TUR","BGR","ROU","CYP","MLT","CHL"]
+deleted_countries=["OECD","HRV","TUR","BGR","ROU","CYP","MLT","CHL","NZL"]
 for i in deleted_countries:
     df1 = df1.drop(df1[df1.LOCATION==i].index)
 
