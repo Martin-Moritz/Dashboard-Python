@@ -23,7 +23,6 @@ def register_callbacks(dashapp):
             disabled=True
 
         if selected_salarial == "SAL":
-            #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
             if selected_countries==[]:
                 filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==1996].index)
 
@@ -47,11 +46,12 @@ def register_callbacks(dashapp):
                     elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Afrique":
                         focus='africa'
 
-                #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1975)
+                #Enlève les données qui ne peuvent être comparées (par ex. qu'une seule donnée/pays pour l'année 1996)
                 for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
 
+        #Création de la figure
         carte = create_carte(filtered_df,focus)
 
         return carte, disabled
@@ -69,13 +69,14 @@ def register_callbacks(dashapp):
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
 
         if selected_salarial == "SAL":
-            #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
+            #Filtrage des données en fonction des pays sélectionnés
             if selected_countries!=[]:
                 frames = []
                 for i in selected_countries:
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
 
+        #Création de la figure
         histogramme = create_histogramme(filtered_df)
 
         return histogramme
@@ -84,7 +85,7 @@ def register_callbacks(dashapp):
     @dashapp.callback(
         Output('bar-diagram', 'figure'),
         [Input('selection-pays', 'value'), Input('selection-salarial','value'), Input('year-slider','value')])
-    def update_figure3(selected_countries, selected_salarial, selected_year):
+    def update_diagramme(selected_countries, selected_salarial, selected_year):
 
         #Filtrage des données en fonction du choix salariés ou non-salariés
         if selected_salarial == "SAL":
@@ -95,26 +96,18 @@ def register_callbacks(dashapp):
         #Filtrage des données correspondantes à l'année selectionnée sur le slider
         filtered_df = filtered_df.loc[filtered_df["TIME"]==selected_year]
 
-        if selected_salarial != "SAL":
-            fig3 = px.histogram(filtered_df, title='Diagramme - Ecart de revenus liés entre les hommes et les femmes', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
-        else:
-            #Mise à jour de la carte si aucun pays n'a été sélectionné (montre alors tous les pays disponibles)
-            if selected_countries==[]:
-                fig3 = px.histogram(filtered_df, title='Diagramme - Ecart de revenus liés entre les hommes et les femmes', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
-
-            #Mise à jour de la carte en fonction des pays sélectionnés
-            else:
+        if selected_salarial == "SAL":
+            #Filtrage des données en fonction des pays sélectionnés
+            if selected_countries!=[]:
                 frames = []
                 for i in selected_countries:
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
 
-                fig3 = px.histogram(filtered_df, title='Diagramme - Ecart de revenus liés entre les hommes et les femmes', x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
+        #Création de la figure
+        diagramme = create_diagramme(filtered_df)
 
-
-        fig3.update_layout(yaxis={'title':{'text':'Ecart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
-
-        return fig3
+        return diagramme
 
 
     @dashapp.callback(
