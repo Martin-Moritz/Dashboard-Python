@@ -7,7 +7,7 @@ from .figures import *
 #Callbacks pour rafraichir et mettre à jour les différentes figures
 def register_callbacks(dashapp):
     @dashapp.callback(
-        [Output('mapbox', 'figure'), Output('selection-pays', 'disabled')],
+        Output('mapbox', 'figure'),
         [Input('selection-pays', 'value'), Input('selection-salarial','value')])
     def update_carte(selected_countries, selected_salarial):
 
@@ -17,10 +17,8 @@ def register_callbacks(dashapp):
         #Filtrage des données en fonction du choix salariés ou non-salariés
         if selected_salarial == "SAL":
             filtered_df = df1.loc[df1["SUBJECT"]=="EMPLOYEE"]
-            disabled=False
         else:
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
-            disabled=True
 
         if selected_salarial == "SAL":
             if selected_countries==[]:
@@ -54,7 +52,7 @@ def register_callbacks(dashapp):
         #Création de la figure
         carte = create_carte(filtered_df,focus)
 
-        return carte, disabled
+        return carte
 
 
     @dashapp.callback(
@@ -133,15 +131,29 @@ def register_callbacks(dashapp):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
 
-        #Valeurs min et max du slider mises à jour
+        #Nouvelles valeurs min et max du slider
         min = filtered_df["TIME"].min()
         max = filtered_df["TIME"].max()
 
-        #Valeurs intermédiaires du slider mises à jour
+        #Nouvelles marques du slider
         a = [i for i in filtered_df["TIME"]]
         marks = {str(i): str(i) for i in a}
 
-        #Mise à jour de l'année sélectionnée sur le Slider
+        #Nouvelle année sélectionnée par défaut sur le Slider
         value = filtered_df["TIME"].max()
 
         return min, max, marks, value
+
+
+    @dashapp.callback(
+        Output('selection-pays', 'disabled'),
+        [Input('selection-salarial','value')])
+    def update_dropdown(selected_salarial):
+
+        #Activation du menu déroulant selon le choix salariés/non-salariés
+        if selected_salarial == "SAL":
+            disabled = False
+        else:
+            disabled = True
+
+        return disabled
