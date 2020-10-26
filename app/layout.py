@@ -63,7 +63,7 @@ layout = html.Div(style={'backgroundColor': '#DCE8FD'}, children=[
         dbc.Col([
             #Figure Histogram
             html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
-        ], width=7),
+        ], width=6),
 
         dbc.Col([
             #Figure Diagramme en barres

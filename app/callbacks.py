@@ -201,6 +201,6 @@ def register_callbacks(dashapp):
         marks = {str(i): str(i) for i in a}
 
         #Mise à jour de l'année sélectionnée sur le Slider
-        value = filtered_df["TIME"].min()
+        value = filtered_df["TIME"].max()
 
         return min, max, marks, value
