@@ -71,7 +71,7 @@ def create_diagramme(df,year):
     Returns:
         Return type : plotly.graph_objects.Figure
     """
-    diagramme = px.histogram(df, title="Diagramme - Écart de revenus liés entre les hommes et les femmes - " + year, x="PAYS", y="Value",
+    diagramme = px.bar(df, title="Diagramme - Écart de revenus liés entre les hommes et les femmes - " + year, x="PAYS", y="Value",
                              color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"},
                              template='simple_white', range_y=(0,60))
     diagramme.update_layout(title={'font':{'size':15}}, xaxis={'title':{'text':''}},
