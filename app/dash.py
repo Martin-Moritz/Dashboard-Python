@@ -12,7 +12,7 @@ external_stylesheets = [dbc.themes.BOOTSTRAP]
 
 #Création de l'application Dash
 dashapp = dash.Dash(__name__, external_stylesheets=external_stylesheets, server=app,
-    routes_pathname_prefix='/dashapp/')
+    routes_pathname_prefix='/')
 
 dashapp.layout = layout
 register_callbacks(dashapp)

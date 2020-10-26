@@ -8,13 +8,14 @@ from .figures import *
 
 #Couleurs utilisées dans le Dashboard
 colors = {
-    'background': '#1F618D',
+    'background1': '#1F618D',
+    'background2': '#DCE8FD',
     'text': '#49BBEE'
 }
 
 
 #Disposition des figures et autres composants
-layout = html.Div(style={'backgroundColor': '#DCE8FD'}, children=[
+layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
     dbc.Row([html.H1(
         children='Dashboard Python',
         style={
@@ -22,7 +23,7 @@ layout = html.Div(style={'backgroundColor': '#DCE8FD'}, children=[
             'color': colors['text'],
             'fontWeight': 'bold'
         }
-    )], justify='center', style={'height':'60px','backgroundColor':colors['background']}),
+    )], justify='center', style={'height':'60px','backgroundColor':colors['background1']}),
 
     dbc.Row([
         dbc.Col([
@@ -49,11 +50,11 @@ layout = html.Div(style={'backgroundColor': '#DCE8FD'}, children=[
                     {'label': 'Non-salariés', 'value': 'NSAL'}
                 ],
                 value='SAL',
-                labelStyle={'width':'20%','backgroundColor':colors['background']}
+                labelStyle={'width':'20%','backgroundColor':colors['background1']}
                 ),
             ]),
         ], width=4),
-    ], justify='center', align = 'center', style={'height':'70px', 'backgroundColor':colors['background']}),
+    ], justify='center', align = 'center', style={'height':'70px', 'backgroundColor':colors['background1']}),
 
     #Figure Mapbox
     html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),
@@ -79,7 +80,7 @@ layout = html.Div(style={'backgroundColor': '#DCE8FD'}, children=[
                 marks={str(i): str(i) for i in range (1990,2020,1)},
                 updatemode='drag'
             )
-            ],style={'backgroundColor':'#DCE8FD'}),
+            ],style={'backgroundColor':colors['background2']}),
         ], width=5),
     ], justify='center', align = 'center'),
 
