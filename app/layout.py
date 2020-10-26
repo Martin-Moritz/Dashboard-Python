@@ -56,19 +56,19 @@ layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
         ], width=4),
     ], justify='center', align = 'center', style={'height':'70px', 'backgroundColor':colors['background1']}),
 
-    #Figure Mapbox
-    html.Div(children=[dcc.Graph(id='mapbox', figure=fig1)]),
+    #Figure Carte
+    html.Div(children=[dcc.Graph(id='mapbox', figure=carte)]),
 
 
     dbc.Row([
         dbc.Col([
-            #Figure Histogram
-            html.Div(children=[dcc.Graph(id='histogram', figure=fig2)]),
+            #Figure Histogramme
+            html.Div(children=[dcc.Graph(id='histogram', figure=histogramme)]),
         ], width=6),
 
         dbc.Col([
             #Figure Diagramme en barres
-            html.Div(children=[dcc.Graph(id='bar-diagram', figure=fig3)]),
+            html.Div(children=[dcc.Graph(id='bar-diagram', figure=diagramme)]),
 
             html.Div(children=[
                 #Choix de l'année pour le diagramme en barres

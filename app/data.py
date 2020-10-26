@@ -1,7 +1,6 @@
 import pandas as pd
 import plotly.express as px
 
-##Data
 ##Pourcentage d'écart salarial femmes-hommes
 df1 = pd.read_csv("data/Ecart salarial femmes-hommes.csv")
 
@@ -36,6 +35,7 @@ for i in range(df1.LOCATION.size):
         else:
             j=j+1
 
+#Renommage des continents en français
 for i in range(len(continents)):
     if continents[i]=="Asia":
         continents[i]="Asie"
