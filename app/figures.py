@@ -48,7 +48,9 @@ def create_histogramme(df):
         Return type : plotly.graph_objects.Figure
     """
     nbins = int(df["TIME"].max() - df["TIME"].min())+1
-    histogramme = px.histogram(df, title="Histogramme - Écart de revenus liés entre les hommes et les femmes", x="TIME", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', barmode='overlay', opacity=0.5, nbins=nbins, range_y=(0,60))
+    histogramme = px.histogram(df, title="Histogramme - Écart de revenus liés entre les hommes et les femmes", x="TIME", y="Value",
+                               color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"},
+                               template='simple_white', barmode='overlay', opacity=0.5, nbins=nbins, range_y=(0,60))
     histogramme.update_layout(yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
     return histogramme
 
@@ -69,8 +71,11 @@ def create_diagramme(df,year):
     Returns:
         Return type : plotly.graph_objects.Figure
     """
-    diagramme = px.histogram(df, title="Diagramme - Écart de revenus liés entre les hommes et les femmes - " + year, x="PAYS", y="Value", color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"}, template='simple_white', range_y=(0,60))
-    diagramme.update_layout(title={'font':{'size':15}}, xaxis={'title':{'text':''}}, yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
+    diagramme = px.histogram(df, title="Diagramme - Écart de revenus liés entre les hommes et les femmes - " + year, x="PAYS", y="Value",
+                             color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"},
+                             template='simple_white', range_y=(0,60))
+    diagramme.update_layout(title={'font':{'size':15}}, xaxis={'title':{'text':''}},
+                            yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
     return diagramme
 
 diagramme = create_diagramme(df1,"Année")
