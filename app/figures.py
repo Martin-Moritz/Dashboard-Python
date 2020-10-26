@@ -26,7 +26,7 @@ def create_carte(df,focus='world'):
                                     hover_name="PAYS",
                                     template="ggplot2",
                                     animation_frame="TIME",
-                                    title="Carte - Écart de revenus liés entre les hommes et les femmes",
+                                    title="Écart de revenus liés entre les hommes et les femmes",
                                     height=700)
     carte.update_layout(paper_bgcolor='#DCE8FD', coloraxis={"colorbar":{"ticksuffix":"%"}})
     return carte
@@ -37,30 +37,32 @@ carte = create_carte(df1)
 ##Figure Histogramme
 
 #fonction pour créer l'histogramme
-def create_histogramme(df):
+def create_histogramme(df, year):
     """
     Retourne un histogramme.
 
     Parameters:
         df : DataFrame or array-like or dict
+        year : str
 
     Returns:
         Return type : plotly.graph_objects.Figure
     """
-    nbins = int(df["TIME"].max() - df["TIME"].min())+1
-    histogramme = px.histogram(df, title="Histogramme - Écart de revenus liés entre les hommes et les femmes", x="TIME", y="Value",
-                               color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"},
-                               template='simple_white', barmode='overlay', opacity=0.5, nbins=nbins, range_y=(0,60))
-    histogramme.update_layout(yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
+    #nbins = int(df["TIME"].max() - df["TIME"].min())+1
+    histogramme = px.histogram(df, title="Nombre de pays en fonction de l'écart de revenus femmes-hommes - " + year,
+                               x="Value", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Écart salarial femmes-hommes"},
+                               template='simple_white', nbins=7, range_x=(0,60), range_y=(0,20), barmode='stack')
+    histogramme.update_layout(title={'font':{'size':15}}, xaxis={"ticksuffix":"%"},
+                              yaxis={'title':{'text':'Nombre de pays'}}, paper_bgcolor='#DCE8FD')
     return histogramme
 
-histogramme = create_histogramme(df1)
+histogramme = create_histogramme(df1,"Année")
 
 
 ##Figure Diagramme en barres
 
 #fonction pour créer le diagramme
-def create_diagramme(df,year):
+def create_diagramme(df, year):
     """
     Retourne un diagramme.
 
@@ -71,8 +73,8 @@ def create_diagramme(df,year):
     Returns:
         Return type : plotly.graph_objects.Figure
     """
-    diagramme = px.bar(df, title="Diagramme - Écart de revenus liés entre les hommes et les femmes - " + year, x="PAYS", y="Value",
-                             color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Ecart salarial femmes-hommes"},
+    diagramme = px.bar(df, title="Écart de revenus liés entre les hommes et les femmes - " + year, x="PAYS", y="Value",
+                             color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Écart salarial femmes-hommes"},
                              template='simple_white', range_y=(0,60))
     diagramme.update_layout(title={'font':{'size':15}}, xaxis={'title':{'text':''}},
                             yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')

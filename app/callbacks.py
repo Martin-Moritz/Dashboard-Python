@@ -67,14 +67,15 @@ def register_callbacks(dashapp):
 
     @dashapp.callback(
         Output('histogram', 'figure'),
-        [Input('selection-pays', 'value'), Input('selection-salarial','value')])
-    def update_histogramme(selected_countries, selected_salarial):
+        [Input('selection-pays', 'value'), Input('selection-salarial','value'), Input('year-slider','value')])
+    def update_histogramme(selected_countries, selected_salarial, selected_year):
         """
         Retourne un histogramme.
 
         Parameters:
             selected_countries : list of str
             selected_salarial : str
+            selected_year : int
 
         Returns:
             Return type : plotly.graph_objects.Figure
@@ -86,6 +87,9 @@ def register_callbacks(dashapp):
         else:
             filtered_df = df1.loc[df1["SUBJECT"]=="SELFEMPLOYED"]
 
+        #Filtrage des données correspondantes à l'année selectionnée sur le slider
+        filtered_df = filtered_df.loc[filtered_df["TIME"]==selected_year]
+
         if selected_salarial == "SAL":
             #Filtrage des données en fonction des pays sélectionnés
             if selected_countries!=[]:
@@ -95,7 +99,7 @@ def register_callbacks(dashapp):
                 filtered_df = pd.concat(frames)
 
         #Création de la figure
-        histogramme = create_histogramme(filtered_df)
+        histogramme = create_histogramme(filtered_df, str(selected_year))
 
         return histogramme
 
@@ -134,7 +138,7 @@ def register_callbacks(dashapp):
                 filtered_df = pd.concat(frames)
 
         #Création de la figure
-        diagramme = create_diagramme(filtered_df,str(selected_year))
+        diagramme = create_diagramme(filtered_df, str(selected_year))
 
         return diagramme
 

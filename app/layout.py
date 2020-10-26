@@ -59,29 +59,28 @@ layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
     #Figure Carte
     html.Div(children=[dcc.Graph(id='mapbox', figure=carte)]),
 
-
     dbc.Row([
         dbc.Col([
             #Figure Histogramme
             html.Div(children=[dcc.Graph(id='histogram', figure=histogramme)]),
-        ], width=6),
+        ], width=5),
 
         dbc.Col([
             #Figure Diagramme en barres
             html.Div(children=[dcc.Graph(id='bar-diagram', figure=diagramme)]),
-
-            html.Div(children=[
-                #Choix de l'année pour le diagramme en barres
-                dcc.Slider(
-                id='year-slider',
-                min= 1992,
-                max= 2018,
-                value= 1992,
-                marks={str(i): str(i) for i in range (1990,2020,1)},
-                updatemode='drag'
-            )
-            ],style={'backgroundColor':colors['background2']}),
-        ], width=5),
+        ], width=6),
     ], justify='center', align = 'center'),
+
+    html.Div(children=[
+        #Choix de l'année pour le diagramme en barres
+        dcc.Slider(
+        id='year-slider',
+        min= 1992,
+        max= 2018,
+        value= 1992,
+        marks={str(i): str(i) for i in range (1990,2020,1)},
+        updatemode='drag'
+    )
+    ],style={'backgroundColor':colors['background2']}),
 
 ])
