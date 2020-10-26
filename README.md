@@ -13,7 +13,7 @@ A venir...
 ## 3 - Rapport d'analyse
 
 ### Définition de l'Écart salarial femmes-hommes :
-  L’écart salarial entre les femmes et les hommes est défini comme la différence entre le salaire médian des hommes et des femmes rapportée au salaire médian des hommes. Les données se rapportent d’une part aux salariés à plein temps et de l’autre aux non-salariés.
+L’écart salarial entre les femmes et les hommes est défini comme la différence entre le salaire médian des hommes et des femmes rapportée au salaire médian des hommes. Les données se rapportent d’une part aux salariés à plein temps et de l’autre aux non-salariés.
 
 ### Dataset
 
