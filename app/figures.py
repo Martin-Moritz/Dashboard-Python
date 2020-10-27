@@ -4,6 +4,13 @@ from datetime import datetime as dt
 
 from .data import *
 
+#Couleurs utilisées dans le Dashboard
+colors = {
+    'background1': '#20B5C8',
+    'background2': '#D4E6F1',
+    'text': 'white'
+}
+
 ##Figure Carte
 
 #fonction pour créer la carte
@@ -29,7 +36,7 @@ def create_carte(df,focus='world'):
                                     animation_frame="TIME",
                                     title="Écart de revenus liés entre les hommes et les femmes",
                                     height=700)
-    carte.update_layout(paper_bgcolor='#DCE8FD', coloraxis={"colorbar":{"ticksuffix":"%"}})
+    carte.update_layout(paper_bgcolor=colors['background2'], coloraxis={"colorbar":{"ticksuffix":"%"}})
     return carte
 
 carte = create_carte(df1)
@@ -54,7 +61,7 @@ def create_histogramme(df, year):
                                x="Value", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Écart salarial femmes-hommes"},
                                template='plotly', nbins=7, range_x=(0,60), range_y=(0,20), barmode='stack')
     histogramme.update_layout(title={'font':{'size':15}}, xaxis={"ticksuffix":"%"},
-                              yaxis={'title':{'text':'Nombre de pays'}}, paper_bgcolor='#DCE8FD')
+                              yaxis={'title':{'text':'Nombre de pays'}}, paper_bgcolor=colors['background2'])
     return histogramme
 
 histogramme = create_histogramme(df1,"Année")
@@ -79,7 +86,7 @@ def create_diagramme(df, year):
                              color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Écart salarial femmes-hommes"},
                              template='plotly', range_y=(0,60))
     diagramme.update_layout(title={'font':{'size':15}}, xaxis={'title':{'text':''}},
-                            yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
+                            yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor=colors['background2'])
     return diagramme
 
 diagramme = create_diagramme(df1,"Année")
@@ -101,7 +108,7 @@ def create_graphe(df):
     graphe = px.line(df, title="Évolution de l'écart de revenus femmes-hommes", x="TIME", y="Value",
                              color="PAYS", labels={'PAYS':'Pays','TIME':'Année', 'Value':"Écart salarial femmes-hommes"},
                              template='plotly', range_y=(0,55))
-    graphe.update_layout(yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor='#DCE8FD')
+    graphe.update_layout(yaxis={'title':{'text':'Écart salarial femmes-hommes'},"ticksuffix":"%"}, paper_bgcolor=colors['background2'])
     return graphe
 
 graphe = create_graphe(df1)

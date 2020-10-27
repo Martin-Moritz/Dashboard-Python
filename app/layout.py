@@ -9,11 +9,10 @@ from .navbar import *
 
 #Couleurs utilisées dans le Dashboard
 colors = {
-    'background1': '#1F618D',
-    'background2': '#DCE8FD',
-    'text': '#49BBEE'
+    'background1': '#20B5C8',
+    'background2': '#D4E6F1',
+    'text': 'white'
 }
-
 
 #Disposition des figures et autres composants
 layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
@@ -30,7 +29,7 @@ layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
                 options=options_selection_pays,
                 multi=True,
                 value=["USA","FRA","CAN","KOR","JPN","DEU"],
-                style={'display': 'inline-block', 'width':'100%'}
+                style={'display': 'inline-block','width':'100%'}
                 ),
             ]),
         ], width=7),
@@ -45,11 +44,11 @@ layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
                     {'label': 'Non-salariés', 'value': 'NSAL'}
                 ],
                 value='SAL',
-                labelStyle={'width':'20%','backgroundColor':colors['background1']}
+                labelStyle={'width':'20%','backgroundColor':colors['background1'],'color':colors['text']}
                 ),
             ]),
         ], width=4),
-    ], justify='center', align = 'center', style={'height':'70px', 'backgroundColor':colors['background1']}),
+    ], no_gutters=True, justify='around', align = 'center', style={'height':'70px', 'backgroundColor':colors['background1']}),
 
     #Figure Carte
     html.Div(children=[dcc.Graph(id='mapbox', figure=carte)]),
@@ -69,7 +68,7 @@ layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
             #Figure Diagramme en barres
             html.Div(children=[dcc.Graph(id='bar-diagram', figure=diagramme)]),
         ], width=6),
-    ], justify='center', align = 'center'),
+    ], no_gutters=True, justify='center', align = 'center'),
 
     dbc.Col([
         html.Div(children=[
