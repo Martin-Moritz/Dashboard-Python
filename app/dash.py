@@ -7,7 +7,7 @@ from . import app
 from .callbacks import register_callbacks
 from .layout import layout
 
-#style de page utilisé pour le dashboard -> 'dbc.themes.BOOTSTRAP permet' d'utiliser les dash_bootstrap_components
+#style de page utilisé pour le dashboard -> 'dbc.themes.BOOTSTRAP' permet d'utiliser les dash_bootstrap_components
 external_stylesheets = [dbc.themes.BOOTSTRAP]
 
 #Création de l'application Dash

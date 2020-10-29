@@ -22,11 +22,12 @@ navbar = dbc.Navbar(
         ], width=2),
         dbc.Col([
             html.H1(
-                children='Écart salarial femmes-hommes à travers le monde',
+                children='Projet ESIEE Paris : Écart salarial femmes-hommes à travers le monde',
                 style={
                     'textAlign': 'center',
                     'color': colors['text'],
-                    'fontWeight': 'bold'
+                    'fontWeight': 'bold',
+                    'fontSize':20
                 }
             ),
         ], width=8),
