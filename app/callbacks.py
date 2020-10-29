@@ -41,23 +41,33 @@ def register_callbacks(dashapp):
                     frames.append(filtered_df[filtered_df["LOCATION"]==i])
                 filtered_df = pd.concat(frames)
 
-                #Ajuste le focus de la carte si un seul pays est sélectionné
-                if len(selected_countries)==1:
-                    if filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Asie":
-                        focus='asia'
-                    elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Europe":
-                        focus='europe'
-                    elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Amérique du Nord":
-                        focus='north america'
-                    elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Amérique du Sud":
-                        focus='south america'
-                    elif filtered_df.CONTINENT[filtered_df["LOCATION"]==selected_countries[0]].any()=="Afrique":
-                        focus='africa'
-
                 #Enlève les données qui ne peuvent pas être comparées (par ex. qu'une seule donnée/pays pour l'année 1996)
                 for i in range(filtered_df["TIME"].min(),filtered_df["TIME"].max()+1):
                     if filtered_df.loc[filtered_df["TIME"]==i].shape[0] != len(frames):
                         filtered_df = filtered_df.drop(filtered_df[filtered_df.TIME==i].index)
+
+                #Détermine si les pays sélectionnés se situent sur le même continent
+                cont = filtered_df.CONTINENT.iloc[0]
+                unique_continent = True
+                i = 1
+                while unique_continent==True and i<len(filtered_df):
+                    if filtered_df.CONTINENT.iloc[i]==cont:
+                        i=i+1
+                    else:
+                        unique_continent=False
+
+                #Ajuste le focus de la carte si les pays sélectionnés sont sur le même continent
+                if unique_continent==True:
+                    if cont=="Asie":
+                        focus='asia'
+                    elif cont=="Europe":
+                        focus='europe'
+                    elif cont=="Amérique du Nord":
+                        focus='north america'
+                    elif cont=="Amérique du Sud":
+                        focus='south america'
+                    elif cont=="Afrique":
+                        focus='africa'
 
         #Création de la figure
         carte = create_carte(filtered_df,focus)
