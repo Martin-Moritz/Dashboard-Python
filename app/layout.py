@@ -44,10 +44,14 @@ layout = html.Div(style={'backgroundColor': colors['background2']}, children=[
                     {'label': 'Non-salariés', 'value': 'NSAL'}
                 ],
                 value='SAL',
-                labelStyle={'width':'20%','backgroundColor':colors['background1'],'color':colors['text']}
+                labelStyle={'width':'100%','backgroundColor':colors['background1'],'color':colors['text']}
                 ),
             ]),
-        ], width=4),
+        ], width=3),
+
+        dbc.Col([
+            dbc.Button("Données utilisées", color="link", className="mr-1", href="https://data.oecd.org/fr/earnwage/ecart-salarial-femmes-hommes.htm"),
+        ], width=1)
     ], no_gutters=True, justify='around', align = 'center', style={'height':'70px', 'backgroundColor':colors['background1']}),
 
     #Figure Carte
