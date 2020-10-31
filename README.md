@@ -6,7 +6,13 @@ Mini projet python dont l'objectif est de créer un dashboard interactif permett
 
 ### Installation
 
-Pour installer toutes les dépendances nécessaires de python.
+*Télécharger python au préalable sur la machine utilisée*
+
+**Ouvrir le terminal :**
+
+- *Windows et Linux :* chercher en tapant '*terminal*' dans la barre de recherche.
+
+**Installer toutes les modules nécessaires de python :**
 
 `pip3 install -r requirements.txt`
 
