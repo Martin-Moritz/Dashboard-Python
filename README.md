@@ -14,7 +14,8 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 ##### Se placer dans le dossier du projet
 
-> Utiliser la commande `cd <chemin du répertoire>  par exemple 'cd Desktop/projet-python-e4-dashboard'
+> Utiliser la commande `cd <chemin du répertoire>
+<br/>par exemple 'cd Desktop/projet-python-e4-dashboard'
 
 ##### Installer tous les modules nécessaires de python
 
