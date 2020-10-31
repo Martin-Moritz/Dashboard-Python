@@ -1,10 +1,10 @@
-# Mini Projet Python - ESIEE Paris
+# Projet Python - ESIEE Paris : Écart salarial femmes-hommes
 
-Mini projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser de manière pertinente un jeu de données.
+Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser de manière pertinente un jeu de données.
 
 ## 1 - User Guide
 
-### Installation
+### **Installation**
 
 *Télécharger python au préalable sur la machine utilisée*
 
@@ -15,6 +15,7 @@ Mini projet python dont l'objectif est de créer un dashboard interactif permett
 ##### Se placer dans le dossier du projet
 
 > Utiliser la commande `cd <chemin du répertoire>`
+
 > Par exemple : cd Desktop/projet-python-e4-dashboard
 
 ##### Installer tous les modules nécessaires de python
@@ -23,7 +24,7 @@ Exécuter la commande `pip3 install -r requirements.txt`
 
 ou `python3 -m pip install -r requirements.txt` dans le terminal.
 
-### Utilisation
+### **Utilisation**
 
 - Ouvrir le terminal
 
@@ -43,10 +44,10 @@ A venir...
 
 ## 3 - Rapport d'analyse
 
-#### Définition de l'Écart salarial femmes-hommes :
+### Définition de l'Écart salarial femmes-hommes :
 L’écart salarial entre les femmes et les hommes est défini comme la différence entre le salaire médian des hommes et des femmes rapportée au salaire médian des hommes. Les données se rapportent d’une part aux salariés à plein temps et de l’autre aux non-salariés.
 
-### Dataset
+### **Dataset**
 
 Data utilisée pour l'analyse : https://data.oecd.org/fr/earnwage/ecart-salarial-femmes-hommes.htm
 
