@@ -8,13 +8,9 @@ Mini projet python dont l'objectif est de créer un dashboard interactif permett
 
 Pour installer toutes les dépendances nécessaires de python.
 
-```python3
-pip3 install -r requirements.txt'
-```
+`pip3 install -r requirements.txt`
 
-```python3
-ou 'python3 -m pip install -r requirements.txt'
-```
+ou `python3 -m pip install -r requirements.txt`
 
 
 ## 2 - Developer Guide
