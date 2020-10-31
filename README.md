@@ -1,12 +1,12 @@
 # Projet Python - ESIEE Paris : Écart salarial femmes-hommes
 
-Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser de manière pertinente un jeu de données.
+Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
 
 ## 1 - User Guide
 
 ### **Installation**
 
-***Installer python au préalable sur la machine utilisée***
+*Installer python au préalable sur la machine utilisée*
 
 ##### Ouvrir le terminal
 
@@ -15,9 +15,9 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 ##### Se placer dans le dossier du projet
 
 > Utiliser la commande `cd <chemin du répertoire>`
-<br/>par exemple 'cd Desktop/projet-python-e4-dashboard'
+<br/>par exemple : 'cd Desktop/projet-python-e4-dashboard'
 
-##### Installer tous les modules nécessaires de python
+##### Installer tous les modules/packages nécessaires de python
 
 Exécuter la commande `pip3 install -r requirements.txt`
 
@@ -35,26 +35,43 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 
 - Attendre quelques instants le chargement de l'application
 
-- Ouvrir son navigateur internet et afficher le Dashboard en *localhost* (entrez l'adresse suivante dans votre navigateur : http://127.0.0.1:5000/)
-
-
+- Ouvrir son navigateur internet et afficher le dashboard en *localhost* (entrez l'adresse suivante dans votre navigateur : http://127.0.0.1:5000/)
 
 ## 2 - Developer Guide
 
-A venir...
+#### Architecture du projet
 
+Le projet est constitué de :
 
+- 4 dossiers :
+
+  - **pycache** : contient une version compressée des modules python afin d'accélérer leur chargement.
+  - **app** : contient l'ensemble du code de l'application.
+  - **data** : contient les fichiers .csv des données utilisées pour ce projet.
+  - **rapport** : contient les images affichées dans le rapport d'analyse ci-dessous.
+
+- 3 fichiers :
+
+  - **main.py** : fichier python permettant de lancer l'application.
+  - **requirements.txt** : liste des modules/packages utilisés dans cette application.
+  - **README.md**
+
+#### Architecture du dossier **app**
+
+Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
+
+- **init.py** : permet de créer l'application flask
 
 ## 3 - Rapport d'analyse
 
-### Définition de l'Écart salarial femmes-hommes :
+#### Définition de l'Écart salarial femmes-hommes :
 L’écart salarial entre les femmes et les hommes est défini comme la différence entre le salaire médian des hommes et des femmes rapportée au salaire médian des hommes. Les données se rapportent d’une part aux salariés à plein temps et de l’autre aux non-salariés.
 
-### **Dataset**
+## Dataset
 
 Data utilisée pour l'analyse : https://data.oecd.org/fr/earnwage/ecart-salarial-femmes-hommes.htm
 
-Data secondaire (pour avoir les noms des pays et des continents en français) :
+Data secondaire (utilisée pour avoir les noms des pays et des continents en français) :
 
   - https://sql.sh/ressources/sql-pays/sql-pays.csv
   - https://pkgstore.datahub.io/JohnSnowLabs/country-and-continent-codes-list/country-and-continent-codes-list-csv_csv/data/b7876b7f496677669644f3d1069d3121/country-and-continent-codes-list-csv_csv.csv
