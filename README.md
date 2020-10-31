@@ -4,19 +4,24 @@ Mini projet python dont l'objectif est de créer un dashboard interactif permett
 
 ## 1 - User Guide
 
-**Installation**
+### Installation
 
 Pour installer toutes les dépendances nécessaires de python.
-'pip3 install -r requirements.txt'
-ou 'python3 -m pip install -r requirements.txt'
 
----
+```python3
+pip3 install -r requirements.txt'
+```
+
+```python3
+ou 'python3 -m pip install -r requirements.txt'
+```
+
 
 ## 2 - Developer Guide
 
 A venir...
 
----
+
 
 ## 3 - Rapport d'analyse
 
@@ -31,5 +36,3 @@ Data secondaire (pour avoir les noms des pays et des continents en français) :
 
   - https://sql.sh/ressources/sql-pays/sql-pays.csv
   - https://pkgstore.datahub.io/JohnSnowLabs/country-and-continent-codes-list/country-and-continent-codes-list-csv_csv/data/b7876b7f496677669644f3d1069d3121/country-and-continent-codes-list-csv_csv.csv
-
----
