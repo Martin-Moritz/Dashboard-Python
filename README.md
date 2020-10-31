@@ -4,19 +4,19 @@ Mini projet python dont l'objectif est de créer un dashboard interactif permett
 
 ## 1 - User Guide
 
-### Installation
+### **Installation**
 
 *Télécharger python au préalable sur la machine utilisée*
 
-#### Ouvrir le terminal
+##### Ouvrir le terminal
 
 > *Windows et Linux :* chercher en tapant '*terminal*' dans la barre de recherche.
 
-#### Se placer dans le dossier du projet
+##### Se placer dans le dossier du projet
 
-> Utiliser la commande `cd <chemin du répertoire>` - par exemple : cd Desktop/Documents/projet-python-e4-dashboard
+> Utiliser la commande `cd <chemin du répertoire>` - par exemple : cd Desktop/projet-python-e4-dashboard
 
-#### Installer tous les modules nécessaires de python
+##### Installer tous les modules nécessaires de python
 
 Exécuter la commande `pip3 install -r requirements.txt`
 
