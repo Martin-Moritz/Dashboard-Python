@@ -10,11 +10,11 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 ##### Ouvrir le terminal
 
-> *Windows et Linux :* chercher en tapant '*terminal*' dans la barre de recherche.
+> *Windows* et *Linux* : chercher en tapant '*terminal*' dans la barre de recherche.
 
 ##### Se placer dans le dossier du projet
 
-> Utiliser la commande `cd <chemin du répertoire>
+> Utiliser la commande `cd <chemin du répertoire>`
 <br/>par exemple 'cd Desktop/projet-python-e4-dashboard'
 
 ##### Installer tous les modules nécessaires de python
