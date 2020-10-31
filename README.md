@@ -6,7 +6,7 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 ### **Installation**
 
-*Télécharger python au préalable sur la machine utilisée*
+***Installer python au préalable sur la machine utilisée***
 
 ##### Ouvrir le terminal
 
@@ -25,6 +25,8 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 
 ### **Utilisation**
 
+*Après avoir téléchargé le dossier du projet :*
+
 - Ouvrir le terminal
 
 - Se placer dans le dossier du projet
@@ -34,6 +36,8 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 - Attendre quelques instants le chargement de l'application
 
 - Ouvrir son navigateur internet et afficher le Dashboard en *localhost* (entrez l'adresse suivante dans votre navigateur : http://127.0.0.1:5000/)
+
+
 
 ## 2 - Developer Guide
 
