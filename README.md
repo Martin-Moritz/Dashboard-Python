@@ -71,7 +71,7 @@ Le projet est constitué de :
   - **pycache** : contient une version compressée des modules python afin d'accélérer leur chargement.
   - **app** : contient l'ensemble du code de l'application.
   - **data** : contient les fichiers .csv des données utilisées pour ce projet.
-  - **rapport** : contient les images affichées dans le rapport d'analyse ci-dessous.
+  - **rapport** : contient les images utilisées dans le rapport d'analyse.
 
 * 3 fichiers :
 
