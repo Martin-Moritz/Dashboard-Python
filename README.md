@@ -6,7 +6,7 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 ### **Installation**
 
-*Installer python au préalable sur la machine utilisée*
+*Installer python au préalable sur la machine utilisée.*
 
 ##### Ouvrir l'invite de commande
 
@@ -78,22 +78,22 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 
 - **callbacks.py** :
   - *update_carte(selected_countries, selected_salarial)*
-  > Met à jour la carte choroplèthe en fonction des pays choisis dans le menu déroulant, ainsi qu'en fonction du type d'emploi sélectionné.
+  > Met à jour la carte choroplèthe en fonction des pays choisis dans le menu déroulant, ainsi qu'en fonction du type d'emploiement sélectionné.
 
   - *update_histogramme(selected_countries, selected_salarial, selected_year)*
-  > Met à jour l'histogramme en fonction des pays et du type d'emploi choisis, ainsi que de l'année sélectionnée sur le slider situé en dessous.
+  > Met à jour l'histogramme en fonction des pays et du type d'emploiement choisis, ainsi que de l'année sélectionnée sur le slider situé en dessous.
 
   - *update_diagramme(selected_countries, selected_salarial, selected_year)*
-  > Met à jour le diagramme en barres en fonction des pays et du type d'emploi choisis, ainsi que de l'année sélectionnée sur le slider situé en dessous.
+  > Met à jour le diagramme en barres en fonction des pays et du type d'emploiement choisis, ainsi que de l'année sélectionnée sur le slider situé en dessous.
 
   - *update_slider(selected_countries, selected_salarial)*
-  > Met à jour le slider en fonction des pays et du type d'emploi choisis pour pouvoir sélectionner des années où des données sont présentes.
+  > Met à jour le slider en fonction des pays et du type d'emploiement choisis pour pouvoir sélectionner des années où des données sont présentes.
 
   - *update_dropdown(selected_salarial)*
-  > Permet d'activer ou désactiver le menu déroulant en fonction du type d'emploi sélectionné.
+  > Permet d'activer ou désactiver le menu déroulant en fonction du type d'emploiement sélectionné.
 
   - *update_graphe(selected_countries, selected_salarial)*
-  > Met à jour le premier graphique en fonction des pays choisis dans le menu déroulant, ainsi qu'en fonction du type d'emploi sélectionné.
+  > Met à jour le premier graphique en fonction des pays choisis dans le menu déroulant, ainsi qu'en fonction du type d'emploiement sélectionné.
 
 - **figures.py** :
   - *create_carte(df,focus='world')*
@@ -106,7 +106,7 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
   > Crée le diagramme en barres avec le dataframe et l'année donnés en paramètres.
 
   - *create_graphe(df)*
-  > Crée le premier graphique avec le dataframe donnée en paramètre.
+  > Crée le premier graphique avec le dataframe donné en paramètre.
 
 ## 3 - Rapport d'analyse
 
@@ -162,7 +162,7 @@ Le cas de la France laisse penser que l'écart de salaire entre les hommes et le
 Cependant, en comparant l'écart salarial en France au reste du monde, on remarque finalement que la France fait partie des pays les plus égalitaires en terme de salaire dans le monde !<br>
 Les plus grosses inégalités sont observés en Amérique du Nord, et surtout en Asie. On peut supposer que cela est dû à une grande différence culturelle et de société.
 
-Malgré cela, on remarque une diminution incontestable de l'écart salarial femmes-hommes, et ce, dans l'ensemble des pays du monde. Ainsi, même si certains pays sont encore loin d'être proche d'une égalité totale en terme de salaire entre les hommes et les femmes, tout le monde se dirige à son rythme dans la bonne voie.
+Malgré cela, on remarque une diminution incontestable de l'écart salarial femmes-hommes, et ce, dans l'ensemble des pays du monde. Ainsi, même si de nombreux pays sont encore loin d'être proche d'une égalité totale en terme de salaire entre les hommes et les femmes, tout le monde se dirige à son rythme dans la bonne voie.
 
 #### Aller plus loin...
 
