@@ -1,5 +1,4 @@
-![Logo_ESIEE](rapport/Logo_ESIEE_Paris.png){:height="20%" width="20%"}
-# Projet Python : Écart salarial femmes-hommes
+# Projet Python : Écart salarial femmes-hommes ![Logo_ESIEE](rapport/Logo_ESIEE_Paris.png)
 
 Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
 
@@ -38,9 +37,7 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 
 Si tout se passe bien :
 
-&nbsp;
 ![CMD](rapport/cmd.PNG)
-&nbsp;
 
 - Ouvrir son navigateur internet et afficher le dashboard en *localhost* (entrez l'adresse suivante dans votre navigateur : http://127.0.0.1:5000/)
 
