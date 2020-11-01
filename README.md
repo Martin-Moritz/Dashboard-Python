@@ -1,4 +1,4 @@
-# Projet Python : Écart salarial femmes-hommes <img align="right" width="100%" height="100%" src="rapport/Logo_ESIEE_Paris.png">
+# Projet Python : Écart salarial femmes-hommes <img align="right" src="rapport/Logo_ESIEE_Paris.png">
 
 Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
 
