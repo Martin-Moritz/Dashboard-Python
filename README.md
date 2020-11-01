@@ -2,6 +2,13 @@
 
 Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
 
+## Table des matières
+
+ - [User Guide](#user-guide)
+ - [Developer Guide](#developer-guide)
+ - [Rapport d'analyse](#rapport-danalyse)
+ - [Dataset](#dataset)
+
 ## 1 - User Guide
 
 ### **Installation**
