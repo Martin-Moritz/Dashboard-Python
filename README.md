@@ -4,10 +4,10 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 ## Table des matières
 
- - [User Guide](#user-guide)
- - [Developer Guide](#developer-guide)
- - [Rapport d'analyse](#rapport-danalyse)
- - [Dataset](#dataset)
+ - [User Guide](#User-Guide)
+ - [Developer Guide](#Developer-Guide)
+ - [Rapport d'analyse](#Rapport-danalyse)
+ - [Dataset](#Dataset)
 
 ## 1 - User Guide
 
