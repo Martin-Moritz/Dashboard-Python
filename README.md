@@ -36,11 +36,14 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 - Attendre quelques instants le chargement de l'application
 
 Si tout se passe bien :
+
 &nbsp;
 ![CMD](rapport/cmd.PNG)
 &nbsp;
 
 - Ouvrir son navigateur internet et afficher le dashboard en *localhost* (entrez l'adresse suivante dans votre navigateur : http://127.0.0.1:5000/)
+
+- Appuyer CTLR+C dans le terminal pour quitter l'application
 
 ## 2 - Developer Guide
 
@@ -55,7 +58,6 @@ Le projet est constitué de :
   - **data** : contient les fichiers .csv des données utilisées pour ce projet.
   - **rapport** : contient les images affichées dans le rapport d'analyse ci-dessous.
 <br/>
-
 - 3 fichiers :
 
   - **main.py** : fichier python permettant de lancer l'application.
@@ -72,7 +74,7 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 - **data.py** : contient le code permettant de trier les jeux de données contenus dans le dossier .data
 - **figures.py** : contient les fonctions qui créent les différentes figures et graphiques du dashboard.
 - **layout.py** : contient le code permettant de disposer les différents compososants et figures sur la page, déterminant ainsi l'aspect du dashboard.
-- **navbar.py** : contient le code déterminant l'aspect de la barre de navigation située au-dessus du dashboard.
+- **navbar.py** : contient le code déterminant l'aspect de la barre de navigation située en haut de la page.
 
 #### Fonctions des différents fichiers
 
