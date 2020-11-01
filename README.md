@@ -8,7 +8,7 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 *Installer python au préalable sur la machine utilisée*
 
-##### Ouvrir le terminal de commande
+##### Ouvrir l'invite de commande
 
 > *Windows* et *Linux* : chercher en tapant '*terminal*' dans la barre de recherche.
 
@@ -27,7 +27,7 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 
 *Après avoir téléchargé le dossier du projet :*
 
-- Ouvrir le terminal de commande
+- Ouvrir le terminal
 
 - Se placer dans le dossier du projet
 
@@ -71,7 +71,7 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 - **dash.py** : permet de convertir l'application *flask* en une application *Dash*, permettant ainsi la création du dashboard.
 - **data.py** : contient le code permettant de trier les jeux de données contenus dans le dossier .data
 - **figures.py** : contient les fonctions qui créent les différentes figures et graphiques du dashboard.
-- **layout.py** : contient le code permettant de disposer les différents compososants et figures sur la page, déterminant ainsi l'aspect du dashboard.
+- **layout.py** : contient le code permettant de disposer les différents composants et figures sur la page, déterminant ainsi l'aspect du dashboard.
 - **navbar.py** : contient le code déterminant l'aspect de la barre de navigation située en haut de la page.
 
 #### Fonctions des différents fichiers
