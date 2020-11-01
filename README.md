@@ -58,13 +58,11 @@ Le projet est constitué de :
   - **data** : contient les fichiers .csv des données utilisées pour ce projet.
   - **rapport** : contient les images affichées dans le rapport d'analyse ci-dessous.
 
+* 3 fichiers :
 
-
-- 3 fichiers :
-
-  - **main.py** : fichier python permettant de lancer l'application.
-  - **requirements.txt** : liste des modules/packages utilisés dans cette application.
-  - **README.md**
+  * **main.py** : fichier python permettant de lancer l'application.
+  * **requirements.txt** : liste des modules/packages utilisés dans cette application.
+  * **README.md**
 
 #### Architecture du dossier **app**
 
