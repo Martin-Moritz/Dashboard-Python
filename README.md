@@ -97,22 +97,61 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 
 - **figures.py** :
   - *create_carte(df,focus='world')*
-  > Crée la carte choroplèthe avec la dataframe et le focus donnés en paramètres.
+  > Crée la carte choroplèthe avec le dataframe et le focus donnés en paramètres.
 
   - *create_histogramme(df, year)*
-  > Crée l'histogramme avec la dataframe et l'année donnés en paramètres.
+  > Crée l'histogramme avec le dataframe et l'année donnés en paramètres.
 
   - *create_diagramme(df, year)*
-  > Crée le diagramme en barres avec la dataframe et l'année donnés en paramètres.
+  > Crée le diagramme en barres avec le dataframe et l'année donnés en paramètres.
 
   - *create_graphe(df)*
-  > Crée le premier graphique avec la dataframe donnée en paramètre.
+  > Crée le premier graphique avec le dataframe donnée en paramètre.
 
 ## 3 - Rapport d'analyse
 
 #### Définition de l'Écart salarial femmes-hommes :
 
 L’écart salarial entre les femmes et les hommes est défini comme la différence entre le salaire médian des hommes et des femmes rapportée au salaire médian des hommes. Les données se rapportent d’une part aux salariés à plein temps et de l’autre aux non-salariés.
+
+
+#### Analyse :
+
+###### **Introduction**
+
+La différence de salaires entre les hommes et les femmes est un fait flagrant concernant l'égalité hommes-femmes en France mais aussi partout dans le monde.
+<br/>La question que nous pouvons nous poser est : l'écart de salaire femmes-hommes se réduit-il au fil des années ?
+
+###### **Le cas de la France**
+
+En France, l'écart salarial en 1995 est de 14,6% pour des personnes salariées (en faveur des hommes, sinon la question d'une inégalité envers les femmes ne se poserait pas... ).
+
+![CMD](rapport/France1.PNG)
+
+<br/>Cet écart est évalué à 13,7% en 2016. On observe une légère baisse, mais l'évolution reste très faible en une vingtaine d'années.
+
+![CMD](rapport/France2.PNG)
+
+###### **Dans le reste du monde**
+
+Mais qu'en est-il dans le reste du monde ?
+
+En 1995, L'écart en Europe varie entre 10 et 28% selon les pays. Aux USA, l'écart est évalué à 24,6%. En Australie,  14,5%. Et enfin en Asie de l'Est, l'écart salarial femmes-hommes est de 37% au Japon et de 44% en Corée du Sud !
+
+![CMD](rapport/Monde1.PNG)
+
+On remarque une grande diversité de l'inégalité hommes-femmes au niveau des salaires selon les régions du monde.<br>
+Heureusement, cet écart salarial semble diminuer dans l'entièreté du globe au fil des ans pour atteindre des valeurs en 2016 de 7 à 17% en Europe, 17% en Amérique du Nord, 11,5% en Australie, 24,6% au Japon et 36,7% en Corée du Sud.
+
+![CMD](rapport/Monde2.PNG)
+
+###### **Conclusion**
+
+Le cas de la France laisse penser que l'écart de salaire entre les hommes et les femmes reste sensiblement le même depuis 20 ans.<br>
+Cependant, en comparant l'écart salarial en France au reste du monde, on remarque finalement que la France fait partie des pays les plus égalitaires en terme de salaire dans le monde !<br>
+Les plus grosses inégalités sont observés en Amérique du Nord, et surtout en Asie. On peut supposer que cela est dû à une grande différence culturelle et de société.
+
+Malgré cela, on remarque une diminution incontestable de l'écart salarial femmes-hommes, et ce, dans l'ensemble des pays du monde. Ainsi, même si certains pays sont encore loin d'être proche d'une égalité totale en terme de salaire entre les hommes et les femmes, tout le monde se dirige à son rythme dans la bonne voie.
 
 #### Aller plus loin...
 
