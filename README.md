@@ -110,7 +110,7 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 
 ## 3 - Rapport d'analyse
 
-#### Définition de l'Écart salarial femmes-hommes :
+#### Définition de l'écart salarial femmes-hommes :
 
 L’écart salarial entre les femmes et les hommes est défini comme la différence entre le salaire médian des hommes et des femmes rapportée au salaire médian des hommes. Les données se rapportent d’une part aux salariés à plein temps et de l’autre aux non-salariés.
 
@@ -123,11 +123,11 @@ La différence de salaires entre les hommes et les femmes est un fait flagrant c
 
 ###### **Le cas de la France**
 
-En France, l'écart salarial en 1995 est de 14,6% pour des personnes salariées (en faveur des hommes, sinon la question d'une inégalité envers les femmes ne se poserait pas... ).
+En France, l'écart salarial en 1995 est de 14,6% pour des personnes salariées.
 
 ![CMD](rapport/France1.PNG)
 
-Cet écart est évalué à 13,7% en 2016. On observe une légère baisse, mais l'évolution reste très faible et semble stagner depuis 20 ans.
+Cet écart est évalué à 13,7% en 2016. On observe une légère baisse, mais l'évolution reste très faible et semble stagner en 20 ans.
 
 ![CMD](rapport/France2.PNG)
 
@@ -135,7 +135,7 @@ Cet écart est évalué à 13,7% en 2016. On observe une légère baisse, mais l
 
 Mais qu'en est-il dans le reste du monde ?
 
-En 1995, L'écart en Europe varie entre 10 et 28% selon les pays. Aux USA, l'écart est évalué à 24,6%. En Australie,  14,5%. Et enfin en Asie de l'Est, l'écart salarial femmes-hommes est de 37% au Japon et de 44% en Corée du Sud !
+En 1995, l'écart salarial en Europe varie entre 10 et 28% selon les pays. Aux USA, l'écart est évalué à 24,6%. En Australie,  14,5%. Et enfin en Asie de l'Est, l'écart salarial femmes-hommes est de 37% au Japon et de 44% en Corée du Sud !
 
 ![CMD](rapport/Monde1.PNG)
 
@@ -158,7 +158,7 @@ Nénmoins, on observe de manière globale une baisse de cet écart salarial dans
 
 ###### **Conclusion**
 
-Le cas de la France laisse penser que l'écart de salaire entre les hommes et les femmes reste sensiblement le même depuis 20 ans.<br>
+Le cas de la France laisse penser que l'écart de salaire entre les hommes et les femmes reste sensiblement le même depuis plus 20 ans.<br>
 Cependant, en comparant l'écart salarial en France au reste du monde, on remarque finalement que la France fait partie des pays les plus égalitaires en terme de salaire dans le monde !<br>
 Les plus grosses inégalités sont observés en Amérique du Nord, et surtout en Asie. On peut supposer que cela est dû à une grande différence culturelle et de société.
 
