@@ -35,6 +35,11 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 
 - Attendre quelques instants le chargement de l'application
 
+Si tout se passe bien :
+&nbsp;
+![CMD](rapport/cmd.PNG)
+&nbsp;
+
 - Ouvrir son navigateur internet et afficher le dashboard en *localhost* (entrez l'adresse suivante dans votre navigateur : http://127.0.0.1:5000/)
 
 ## 2 - Developer Guide
@@ -49,6 +54,7 @@ Le projet est constitué de :
   - **app** : contient l'ensemble du code de l'application.
   - **data** : contient les fichiers .csv des données utilisées pour ce projet.
   - **rapport** : contient les images affichées dans le rapport d'analyse ci-dessous.
+<br/>
 
 - 3 fichiers :
 
@@ -72,7 +78,7 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 
 - **callbacks.py** :
   - *update_carte(selected_countries, selected_salarial)*
-  > Met à jour la carte en fonction des pays choisis dans le menu déroulant, ainsi qu'en fonction du type d'emploi sélectionné.
+  > Met à jour la carte choroplèthe en fonction des pays choisis dans le menu déroulant, ainsi qu'en fonction du type d'emploi sélectionné.
 
   - *update_histogramme(selected_countries, selected_salarial, selected_year)*
   > Met à jour l'histogramme en fonction des pays et du type d'emploi choisis, ainsi que de l'année sélectionnée sur le slider situé en dessous.
