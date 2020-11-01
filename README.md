@@ -125,11 +125,11 @@ La différence de salaires entre les hommes et les femmes est un fait flagrant c
 
 En France, l'écart salarial en 1995 est de 14,6% pour des personnes salariées.
 
-![CMD](rapport/France1.PNG)
+![FRANCE1](rapport/France1.PNG)
 
 Cet écart est évalué à 13,7% en 2016. On observe une légère baisse, mais l'évolution reste très faible et semble stagner en 20 ans.
 
-![CMD](rapport/France2.PNG)
+![FRANCE2](rapport/France2.PNG)
 
 ###### **Dans le reste du monde**
 
@@ -137,12 +137,12 @@ Mais qu'en est-il dans le reste du monde ?
 
 En 1995, l'écart salarial en Europe varie entre 10 et 28% selon les pays. Aux USA, l'écart est évalué à 24,6%. En Australie,  14,5%. Et enfin en Asie de l'Est, l'écart salarial femmes-hommes est de 37% au Japon et de 44% en Corée du Sud !
 
-![CMD](rapport/Monde1.PNG)
+![MONDE1](rapport/Monde1.PNG)
 
 On remarque une grande diversité de l'inégalité hommes-femmes au niveau des salaires selon les régions du monde.<br>
 Heureusement, cet écart salarial semble diminuer dans l'entièreté du globe au fil des ans pour atteindre des valeurs en 2016 de 7 à 17% en Europe, 17% en Amérique du Nord, 11,5% en Australie, 24,6% au Japon et 36,7% en Corée du Sud.
 
-![CMD](rapport/Monde2.PNG)
+![MONDE2](rapport/Monde2.PNG)
 
 ###### **Le cas des auto-entrepreneurs**
 
@@ -150,11 +150,11 @@ Le cas des personnes non-salariées est plus délicat. En effet, beaucoup moins 
 
 En 2006, l'écart salarial varie de 12 à 60% selon les pays,les plus grosses inégalités étant observées en Amérique du Nord.
 
-![CMD](rapport/Monde3.PNG)
+![MONDE3](rapport/Monde3.PNG)
 
 Nénmoins, on observe de manière globale une baisse de cet écart salarial dans le monde au fil des années. En 2016, les valeurs varient entre 8 et 56%.
 
-![CMD](rapport/Monde4.PNG)
+![MONDE4](rapport/Monde4.PNG)
 
 ###### **Conclusion**
 
