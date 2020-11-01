@@ -1,4 +1,6 @@
-# Projet Python - ESIEE Paris : Écart salarial femmes-hommes
+# Projet Python : Écart salarial femmes-hommes &nbsp;
+![Logo_ESIEE](rapport/Logo_ESIEE_Paris.png)
+&nbsp;
 
 Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
 
@@ -113,7 +115,13 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 ## 3 - Rapport d'analyse
 
 #### Définition de l'Écart salarial femmes-hommes :
+
 L’écart salarial entre les femmes et les hommes est défini comme la différence entre le salaire médian des hommes et des femmes rapportée au salaire médian des hommes. Les données se rapportent d’une part aux salariés à plein temps et de l’autre aux non-salariés.
+
+#### Aller plus loin...
+
+Notre analyse porte sur la différence de salaires entre les hommes et les femmes de manière gobale.
+<br/>Cependant, il pourra être pertinent de s'intéresser à l'écart salarial femmes-hommes au sein d'un même secteur d'activité (Agriculture, Industrie, Services...), voire au sein d'un métier précis.
 
 ## Dataset
 
