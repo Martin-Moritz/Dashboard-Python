@@ -8,7 +8,7 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 *Installer python au préalable sur la machine utilisée*
 
-##### Ouvrir le terminal de commandes
+##### Ouvrir le terminal de commande
 
 > *Windows* et *Linux* : chercher en tapant '*terminal*' dans la barre de recherche.
 
@@ -27,7 +27,7 @@ ou `python3 -m pip install -r requirements.txt` dans le terminal.
 
 *Après avoir téléchargé le dossier du projet :*
 
-- Ouvrir le terminal de commandes
+- Ouvrir le terminal de commande
 
 - Se placer dans le dossier du projet
 
