@@ -50,6 +50,7 @@ Le projet est constitué de :
   - **data** : contient les fichiers .csv des données utilisées pour ce projet.
   - **rapport** : contient les images affichées dans le rapport d'analyse ci-dessous.
 
+
 - 3 fichiers :
 
   - **main.py** : fichier python permettant de lancer l'application.
@@ -60,7 +61,12 @@ Le projet est constitué de :
 
 Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
 
-- **init.py** : permet de créer l'application flask
+- **init.py** : permet de créer l'application *flask*.
+- **callbacks.py** : contient les fonctions qui permettent d'obtenir des graphiques interactifs.
+- **dash.py** : permet de convertir l'application *flask* en une application *Dash*, permettant ainsi la création du dashboard.
+- **data.py** : contient le code permettant de trier les jeux de données contenus dans le dossier .data
+- **figures.py** : contient les fonctions qui créent les différentes figures et graphiques du dashboard.
+- **layout.py** : contient le code permettant de disposer les graphiques et composants du dashboard sur la page.
 
 ## 3 - Rapport d'analyse
 
