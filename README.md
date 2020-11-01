@@ -4,12 +4,12 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 
 ## Table des matières
 
- - [User Guide](#user-Guide)
- - [Developer Guide](#developer-Guide)
+ - [User Guide](#user-guide)
+ - [Developer Guide](#developer-guide)
  - [Rapport d'analyse](#rapport-danalyse)
  - [Dataset](#dataset)
 
-## 1 - User Guide
+## 1 - User Guide <a name="user-guide" />
 
 ### **Installation**
 
@@ -50,7 +50,7 @@ Si tout se passe bien :
 
 - Appuyer CTLR+C dans le terminal pour quitter l'application
 
-## 2 - Developer Guide
+## 2 - Developer Guide <a name="developer-guide" />
 
 #### Architecture du projet
 
@@ -115,7 +115,7 @@ Le dossier app est constitué d'un dossier *pycache* et de 7 fichiers python :
   - *create_graphe(df)*
   > Crée le premier graphique avec le dataframe donné en paramètre.
 
-## 3 - Rapport d'analyse
+## 3 - Rapport d'analyse <a name="rapport-danalyse" />
 
 #### Définition de l'écart salarial femmes-hommes :
 
@@ -176,7 +176,7 @@ Malgré cela, on remarque une diminution incontestable de l'écart salarial femm
 Notre analyse porte sur la différence de salaires entre les hommes et les femmes de manière gobale.<br>
 Cependant, il pourra être pertinent de s'intéresser à l'écart salarial femmes-hommes au sein d'un même secteur d'activité (Agriculture, Industrie, Services...), voire au sein d'un métier précis.
 
-## Dataset
+## Dataset <a name="dataset" />
 
 Data utilisée pour l'analyse : https://data.oecd.org/fr/earnwage/ecart-salarial-femmes-hommes.htm
 
