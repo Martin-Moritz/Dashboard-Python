@@ -15,7 +15,7 @@ Projet Python dont l'objectif est de créer un dashboard interactif permettant d
 
 *Installer python au préalable sur la machine utilisée.*
 
-##### Ouvrir l'invite de commande
+##### Ouvrir l'invite de commandes
 
 > *Windows* et *Linux* : chercher en tapant '*terminal*' dans la barre de recherche.
 
