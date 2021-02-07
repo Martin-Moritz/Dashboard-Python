@@ -1,6 +1,6 @@
 # Projet Python : Écart salarial femmes-hommes <a href="https://www.esiee.fr/"> <img align="right" width="8%" height="8%" src="rapport/Logo_ESIEE_Paris.png"> </a>
 
-Projet python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
+Projet Python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
 
 ## Table des matières
 
@@ -24,7 +24,7 @@ Projet python dont l'objectif est de créer un dashboard interactif permettant d
 > Utiliser la commande `cd <chemin du répertoire>`<br>
 > par exemple : 'cd Desktop/projet-python-e4-dashboard'
 
-##### Installer tous les modules/packages nécessaires de python
+##### Installer tous les modules/packages nécessaires
 
 Exécuter la commande `pip install -r requirements.txt`
 
