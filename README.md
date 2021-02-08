@@ -1,4 +1,4 @@
-# Dashboard Python - Écart salarial femmes-hommes <a href="https://www.esiee.fr/"> <img align="right" width="8%" height="8%" src="rapport/Logo_ESIEE_Paris.png"> </a>
+# Dashboard Python - Écart Salarial Femmes-Hommes <a href="https://www.esiee.fr/"> <img align="right" width="8%" height="8%" src="rapport/Logo_ESIEE_Paris.png"> </a>
 
 Projet Python dont l'objectif est de créer un dashboard interactif permettant de visualiser et d'analyser de manière pertinente un jeu de données.
 
